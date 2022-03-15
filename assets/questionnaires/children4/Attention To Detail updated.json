@@ -1,0 +1,233 @@
+{
+    "isActive":true,
+    "name": "Attention To Detail",
+    "image":"assets/images/detail.png",
+    "instructions": "Please answer each of the following questions about your child or the person who is under your care by ticking a box that reflects your answer to the question most appropriately.  If there is any question that you feel not able to comment, please ask your son, daughter, partner or the person to answer.",
+    "questions": [
+        {
+            "text": "S/he often notices small sounds when others do not.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he usually notices house numbers or similar strings of information.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he is fascinated by dates.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+            "text": "S/he tends to notice details that others do not.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "S/he is fascinated by numbers.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he notices patterns in things all the time.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he usually concentrates more on the whole picture, rather than the small details.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he is not very good at remembering phone numbers.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he doesn’t usually notice small changes in a situation, or a person’s appearance.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he is not very good at remembering people’s date of birth",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        }
+    ]
+    
+}

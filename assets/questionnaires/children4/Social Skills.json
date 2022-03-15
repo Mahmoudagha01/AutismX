@@ -1,0 +1,232 @@
+{    
+    "isActive":true,
+    "name": "Social Skills",
+    "image":"assets/images/social.png",
+    "instructions": "Please answer each of the following questions about your child or the person who is under your care by ticking a box that reflects your answer to the question most appropriately.  If there is any question that you feel not able to comment, please ask your son, daughter, partner or the person to answer.",
+    "questions": [
+        {
+            "text": "S/he prefers to do things with others rather than on her/his own.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "S/he finds social situations easy.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he would rather go to a library than a birthday party.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+            "text": "S/he is drawn more strongly to people than to things.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ] 
+        },
+        {
+            "text": "S/he finds it hard to make new friends.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he finds it easy to work out what someone is thinking or feeling just by looking at their face.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 3
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "S/he enjoys social occasions",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 23
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he finds it difficult to work out people’s intentions.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he enjoys meeting new people.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he is good at taking care not to hurt other people’s feelings.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        }
+    ]
+}

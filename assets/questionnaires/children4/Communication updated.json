@@ -1,0 +1,232 @@
+{
+    "isActive":true,
+    "name": "Communication",
+    "image":"assets/images/communication.png",
+    "instructions": "Please answer each of the following questions about your child or the person who is under your care by ticking a box that reflects your answer to the question most appropriately.  If there is any question that you feel not able to comment, please ask your son, daughter, partner or the person to answer.",
+    "questions": [
+        {
+            "text": "S/he has difficulty understanding rules for polite behaviour.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he enjoys social chit-chat.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "When s/he talks, it isn’t always easy for others to get a word in edgeways.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+            "text": "S/he doesn’t know how to keep a conversation going with her/his peers.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "S/he finds it easy to “read between the lines” when someone is talking to her/him.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "S/he knows how to tell if someone listening to him/her is getting bored.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "When s/he talk on the phone, s/he is not sure when it’s her/his turn to speak ",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he is often the last to understand the point of a joke.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he is good at social chit-chat.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+          
+            "text": "People often tell her/him that s/he keeps going on and on about the same thing.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        }
+    ]
+}

@@ -1,0 +1,232 @@
+{
+    "isActive":true,
+    "name": "Imagination",
+    "image":"assets/images/img.png",
+    "instructions": "Please answer each of the following questions about your child or the person who is under your care by ticking a box that reflects your answer to the question most appropriately.  If there is any question that you feel not able to comment, please ask your son, daughter, partner or the person to answer.",
+    "questions": [
+        {
+            "text": "If s/he tries to imagine something, s/he finds it very easy to create a picture in her/his mind.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "When s/he is read a story, s/he can easily imagine what the characters might look like.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he finds making up stories easy",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+            "text": "When s/he is read a story, s/he finds it difficult to work out the characters’ intentions or feelings.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "S/he doesn’t particularly enjoy fictional stories.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he would rather go to the cinema than a museum.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "When s/he was in preschool, s/he used to enjoy playing games involving pretending with other children.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "S/he likes to collect information about categories of things (e.g. types of car, types of bird, types of train, types of plant, etc.).",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he finds it difficult to imagine what it would be like to be someone else.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he finds it very to easy to play games with children that involve pretending.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        }
+    ]
+}

@@ -1,0 +1,234 @@
+{
+    "isActive":false,
+    
+    "name": "Attention Switching",
+    "image":"assets/images/switch.png",
+    "instructions": "Please indicate your agreement or disagreement with the following statement. Please be open and honest in your responding.",
+    "questions": [
+        {
+            "text": "I prefer to do things the same way over and over again.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I frequently get so strongly absorbed in one thing that I lose sight of other things.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+          
+            "text": "In a social group, I can easily keep track of several different people’s conversations.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+            "text": "I tend to have very strong interests which I get upset about if I can’t pursue.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "It does not upset me if my daily routine is disturbed.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "I find it easy to do more than one thing at once.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "I enjoy doing things spontaneously.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "If there is an interruption, I can switch back to what I was doing very quickly. ",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+          
+            "text": "I like to plan any activities I participate in carefully.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "New situations make me anxious.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        }
+    ]
+    
+}

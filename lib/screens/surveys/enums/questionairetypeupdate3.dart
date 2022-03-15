@@ -1,0 +1,5 @@
+enum QuestionnaireType {
+
+  Communication,
+  Imagination
+}

@@ -1,0 +1,234 @@
+{
+    "isActive":false,
+    
+    "name": "Attention Switching",
+    "image":"assets/images/switch.png",
+    "instructions": "Please answer each of the following questions about your child or the person who is under your care by ticking a box that reflects your answer to the question most appropriately.  If there is any question that you feel not able to comment, please ask your son, daughter, partner or the person to answer.",
+    "questions": [
+        {
+            "text": "S/he prefers to do things the same way over and over again.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "S/he frequently gets so strongly absorbed in one thing that s/he loses sight of other things.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+          
+            "text": "In a social group, s/he can easily keep track of several different people’s conversations.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+            "text": "S/he tends to have very strong interests, which s/he gets upset about if s/he can’t pursue.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "It does not upset him/her if his/her daily routine is disturbed.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "S/he finds it easy to go back and forth between different activities.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+            "text": "S/he enjoys doing things spontaneously.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]
+        },
+        {
+          
+            "text": "If there is an interruption, s/he can switch back to what s/he was doing very quickly.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 2
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 3
+                }
+            ]  
+        },
+        {
+          
+            "text": "S/he likes to plan any activities s/he participates in carefully.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "New situations make him/her anxious.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 3
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 2
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        }
+    ]
+    
+}
