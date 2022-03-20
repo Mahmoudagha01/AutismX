@@ -206,7 +206,7 @@ class ButtonWidget extends StatelessWidget {
       );
 }
 
-Widget CustombackAppBar(BuildContext context) {
+Widget CustombackAppBar(BuildContext context,Function back) {
   return SafeArea(
     child: Stack(
       children: [
@@ -225,9 +225,7 @@ Widget CustombackAppBar(BuildContext context) {
               child: Image.asset("assets/images/header.png")),
         ),
         IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: back,
             icon: const Icon(
               Icons.arrow_back,
               color: ColorManager.blue,

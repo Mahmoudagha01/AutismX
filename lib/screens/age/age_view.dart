@@ -1,6 +1,7 @@
 
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/common/common_view.dart';
+import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
@@ -90,20 +91,27 @@ class _AgeState extends State<Age> {
         ],
       ),
       endDrawer: myDrawer(context, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ProfileScreen(),
             ),
           );
         }, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => CenterLayout(),
             ),
           );
-        }, () {}, () {}, () {}, () {}),
+        }, () {},() {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FeedbackView(),
+            ),
+          );
+        }, () {}, () {}),
     );
   }
 }

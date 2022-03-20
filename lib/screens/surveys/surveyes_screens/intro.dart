@@ -29,7 +29,9 @@ class _IntroState extends State<Intro> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustombackAppBar(context),
+              CustombackAppBar(context,() {
+              Navigator.pop(context);
+            },),
              const SizedBox(
                 height: 50,
               ),

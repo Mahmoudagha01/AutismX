@@ -1,5 +1,6 @@
 
-import 'package:autismx/screens/parent/sign_in/signin_view.dart';
+import 'package:autismx/screens/onboarding/splash.dart';
+
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,7 @@ class OnBoardingPage extends StatelessWidget {
       );
 
   void goToHome(context) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => SignInParentLayout()),
+        MaterialPageRoute(builder: (_) => SplashScreen()),
       );
 
   Widget buildImage(String path) =>

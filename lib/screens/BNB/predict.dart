@@ -1,6 +1,7 @@
 
 
 import 'package:autismx/screens/centers/center_view.dart';
+import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';
 import 'package:autismx/screens/surveys/surveyes_screens/intro.dart';
 import 'package:autismx/shared/local/colors.dart';
@@ -118,20 +119,27 @@ class _PredictState extends State<Predict> {
         ),
       ),
       endDrawer: myDrawer(context, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ProfileScreen(),
             ),
           );
         }, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => CenterLayout(),
             ),
           );
-        }, () {}, () {}, () {}, () {})
+        }, () {}, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FeedbackView(),
+            ),
+          );
+        }, () {}, () {})
     );
   }
 }

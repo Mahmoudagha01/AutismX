@@ -1,9 +1,10 @@
-import 'package:autismx/screens/BNB/activity.dart';
+import 'package:flutter/material.dart';
+import 'package:autismx/screens/BNB/activity/activity.dart';
 import 'package:autismx/screens/BNB/advice/advice_view.dart';
 import 'package:autismx/screens/BNB/home/home_view.dart';
 import 'package:autismx/screens/BNB/predict.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
-import 'package:flutter/material.dart';
+
 
 
 

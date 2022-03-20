@@ -219,21 +219,21 @@ class _HomeState extends State<Home> {
           ),
         ),
         endDrawer: myDrawer(context, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => ProfileScreen(),
             ),
           );
         }, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => CenterLayout(),
             ),
           );
         }, () {}, () {
-          Navigator.pushReplacement(
+          Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => FeedbackView(),
