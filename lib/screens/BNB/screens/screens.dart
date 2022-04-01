@@ -1,29 +1,28 @@
-import 'package:flutter/material.dart';
+
 import 'package:autismx/screens/BNB/activity/activity.dart';
 import 'package:autismx/screens/BNB/advice/advice_view.dart';
 import 'package:autismx/screens/BNB/home/home_view.dart';
 import 'package:autismx/screens/BNB/predict.dart';
+import 'package:flutter/material.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 
 
-
-
-
 class Screens extends StatefulWidget {
-  const Screens({ Key key }) : super(key: key);
-
   @override
   State<Screens> createState() => _ScreensState();
 }
 
 class _ScreensState extends State<Screens> {
-  int crrentindex =0;
+    int crrentindex =0;
+
   List _screens=[Home(),Predict(),Advices(),Activity()];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _screens[crrentindex],
-      bottomNavigationBar: BottomNavigationBar(
+    
+            return Scaffold(
+              body: _screens[crrentindex],
+              bottomNavigationBar: BottomNavigationBar(
         currentIndex: crrentindex,
         selectedItemColor: ColorManager.blue,
         unselectedItemColor: ColorManager.greyFont,
@@ -38,6 +37,7 @@ class _ScreensState extends State<Screens> {
         BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/advice1.png"),), label: "Advices"),
         BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/games.png"),), label: "Activity"),
         ],),
-    );
-  }
+            );
+          }
 }
+

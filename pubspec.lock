@@ -29,6 +29,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.11"
+  bloc:
+    dependency: "direct main"
+    description:
+      name: bloc
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.2.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -71,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+  conditional_builder:
+    dependency: "direct main"
+    description:
+      name: conditional_builder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   convert:
     dependency: transitive
     description:
@@ -92,6 +106,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.4"
   dots_indicator:
     dependency: transitive
     description:
@@ -139,6 +160,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_bloc:
+    dependency: "direct main"
+    description:
+      name: flutter_bloc
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.3.3"
   flutter_keyboard_visibility:
     dependency: transitive
     description:
@@ -165,6 +193,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.5"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -182,6 +217,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "8.0.9"
   get_it:
     dependency: "direct main"
     description:
@@ -189,20 +231,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.2.0"
-  gif_ani:
-    dependency: "direct main"
-    description:
-      name: gif_ani
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
-  google_fonts:
-    dependency: "direct main"
-    description:
-      name: google_fonts
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.2"
   graphs:
     dependency: transitive
     description:
@@ -218,19 +246,19 @@ packages:
     source: hosted
     version: "1.0.4"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.2"
+    version: "0.13.4"
   http_parser:
     dependency: transitive
     description:
       name: http_parser
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.4"
+    version: "4.0.0"
   image:
     dependency: "direct main"
     description:
@@ -238,6 +266,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.19"
+  image_picker:
+    dependency: "direct main"
+    description:
+      name: image_picker
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.7.5+4"
+  image_picker_for_web:
+    dependency: transitive
+    description:
+      name: image_picker_for_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
+  image_picker_platform_interface:
+    dependency: transitive
+    description:
+      name: image_picker_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   intl:
     dependency: "direct main"
     description:
@@ -371,13 +420,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.5"
-  pedantic:
-    dependency: transitive
-    description:
-      name: pedantic
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.11.1"
   petitparser:
     dependency: transitive
     description:
@@ -502,6 +544,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  sqflite:
+    dependency: "direct main"
+    description:
+      name: sqflite
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.3.2+4"
+  sqflite_common:
+    dependency: transitive
+    description:
+      name: sqflite_common
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.3+3"
   stack_trace:
     dependency: transitive
     description:
@@ -523,6 +579,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  synchronized:
+    dependency: transitive
+    description:
+      name: synchronized
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0+2"
   term_glyph:
     dependency: transitive
     description:
@@ -595,4 +658,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.15.0 <3.0.0"
-  flutter: ">=1.24.0-10.1.pre"
+  flutter: ">=2.0.0"

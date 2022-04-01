@@ -1,5 +1,4 @@
 import 'package:autismx/screens/BNB/activity/attentiontodetails.dart';
-import 'package:autismx/screens/BNB/screens.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';

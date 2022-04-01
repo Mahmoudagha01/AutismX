@@ -1,5 +1,6 @@
 import 'dart:async';
-import 'package:autismx/screens/parent/sign_in/signin_view.dart';
+
+import 'package:autismx/screens/parent/sing_in/signin_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

@@ -1,8 +1,5 @@
 import 'dart:async';
-import 'package:autismx/screens/BNB/activity/activity.dart';
 import 'package:autismx/screens/BNB/activity/attentiontodetails.dart';
-import 'package:autismx/screens/BNB/screens.dart';
-import 'package:autismx/screens/activities/puzzle/generated/l10n.dart';
 import 'package:autismx/screens/activities/puzzle/src/domain/models/move_to.dart';
 import 'package:autismx/screens/activities/puzzle/src/ui/pages/game/controller/game_controller.dart';
 import 'package:autismx/screens/activities/puzzle/src/ui/pages/game/widgets/background.dart';
@@ -15,7 +12,6 @@ import 'package:autismx/screens/activities/puzzle/src/ui/utils/responsive.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 

@@ -1,8 +1,14 @@
 import 'package:autismx/screens/activities/puzzle/generated/l10n.dart';
+import 'package:autismx/shared/network/bloc_observer.dart';
+import 'package:autismx/shared/network/dio/dio_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'screens/onboarding/on_boarding_page.dart';
 void main() {
+   
+  DioHelper.init();
+  Bloc.observer = MyBlocObserver();
   runApp( MyApp());
 }
 
@@ -29,7 +35,7 @@ localizationsDelegates: const [
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-     home:   OnBoardingPage(),
+     home: OnBoardingPage(),
     );
   }
 }

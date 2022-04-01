@@ -1,12 +1,12 @@
 import 'dart:math';
-import 'package:autismx/screens/BNB/screens.dart';
+import 'package:autismx/screens/BNB/screens/screens.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
-class ResultScreen extends StatelessWidget {
+class ResultScreen extends StatefulWidget {
   final String questionnaireName;
   final int score1;
   final int score2;
@@ -29,9 +29,33 @@ class ResultScreen extends StatelessWidget {
   });
 
   @override
+  State<ResultScreen> createState() => _ResultScreenState();
+}
+
+class _ResultScreenState extends State<ResultScreen> {
+  
+
+  @override
+  void initState() {
+    super.initState();
+
+   
+  }
+
+  @override
   Widget build(BuildContext context) {
-    List scores = [score1, score2, score3, score4, score5];
-    int total = score1 + score2 + score3 + score4 + score5;
+    List scores = [
+      widget.score1,
+      widget.score2,
+      widget.score3,
+      widget.score4,
+      widget.score5
+    ];
+    int total = widget.score1 +
+        widget.score2 +
+        widget.score3 +
+        widget.score4 +
+        widget.score5;
     String _getinterpretation() {
       if (total >= 76) {
         return "Your Score indicates significant Autistic traits (Autism) You Should Contact a specialist to make an examination";
@@ -43,8 +67,13 @@ class ResultScreen extends StatelessWidget {
     }
 
     String _getMax() {
-      int indexOfMaximum =
-          scores.indexOf([score1, score2, score3, score4, score5].reduce(max));
+      int indexOfMaximum = scores.indexOf([
+        widget.score1,
+        widget.score2,
+        widget.score3,
+        widget.score4,
+        widget.score5
+      ].reduce(max));
       //return indexOfMinimum.toString();
       switch (indexOfMaximum) {
         case 0:
@@ -66,9 +95,10 @@ class ResultScreen extends StatelessWidget {
       }
     }
 
-    var now = new DateTime.now();
-    var formatter = new DateFormat('dd/MM/yyyy');
+    var now = DateTime.now();
+    var formatter = DateFormat('dd/MM/yyyy');
     String formattedDate = formatter.format(now);
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -90,7 +120,7 @@ class ResultScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            name,
+                            widget.name,
                             style: const TextStyle(
                                 color: ColorManager.blueFont,
                                 fontSize: 23,
@@ -107,7 +137,9 @@ class ResultScreen extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    
+                                  },
                                   icon: const Icon(
                                     Icons.save_outlined,
                                     color: ColorManager.blue,
@@ -168,7 +200,7 @@ class ResultScreen extends StatelessWidget {
                                   borderRadius:
                                       BorderRadiusDirectional.circular(5),
                                   border: Border.all(color: Colors.blueAccent)),
-                              child: Text("$age years old",
+                              child: Text("${widget.age} years old",
                                   style: const TextStyle(
                                     fontSize: 17,
                                   )),
@@ -197,7 +229,7 @@ class ResultScreen extends StatelessWidget {
                                   borderRadius:
                                       BorderRadiusDirectional.circular(5),
                                   border: Border.all(color: Colors.blueAccent)),
-                              child: Text(gender,
+                              child: Text(widget.gender,
                                   style: const TextStyle(
                                     fontSize: 17,
                                   )),
@@ -304,16 +336,12 @@ class ResultScreen extends StatelessWidget {
               height: 60.0,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: ColorManager.blue, 
-                  onPrimary: Colors.white, 
+                  primary: ColorManager.blue,
+                  onPrimary: Colors.white,
                 ),
                 onPressed: () {
-                   Navigator.push(
-                    context,
-                    MaterialPageRoute(builder:
-                       (context) =>CenterLayout())
-
-                    );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CenterLayout()));
                 },
                 child: const Text('Specialists Recommendations',
                     style: TextStyle(fontSize: 20.0)),
@@ -325,16 +353,12 @@ class ResultScreen extends StatelessWidget {
               height: 60.0,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: ColorManager.blue, 
-                  onPrimary: Colors.white, 
+                  primary: ColorManager.blue,
+                  onPrimary: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder:
-                       (context) =>Screens())
-
-                    );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Screens()));
                 },
                 child: const Text('Go Home', style: TextStyle(fontSize: 20.0)),
               ),

@@ -1,5 +1,6 @@
 import 'dart:math';
-import 'package:autismx/screens/BNB/screens.dart';
+
+import 'package:autismx/screens/BNB/screens/screens.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
