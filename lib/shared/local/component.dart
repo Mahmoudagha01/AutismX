@@ -1,4 +1,6 @@
+import 'package:autismx/screens/parent/sing_in/signin_view.dart';
 import 'package:autismx/shared/local/colors.dart';
+import 'package:autismx/shared/network/dio/profile_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -65,7 +67,9 @@ Widget CustomAppBar(
     ],
   );
 }
-Widget fullAppbar( {BuildContext context, GlobalKey<ScaffoldState> scaffoldkey}){
+
+Widget fullAppbar(
+    {BuildContext context, GlobalKey<ScaffoldState> scaffoldkey}) {
   return Stack(
     children: [
       Container(
@@ -74,14 +78,14 @@ Widget fullAppbar( {BuildContext context, GlobalKey<ScaffoldState> scaffoldkey})
         color: const Color.fromRGBO(236, 240, 243, 1),
       ),
       SvgPicture.asset("assets/images/Path1.svg"),
-    Positioned(
-          top: 0,
-          left: MediaQuery.of(context).size.width * 0.32,
-          child: SizedBox(
-              width: 140,
-              height: 100,
-              child: Image.asset("assets/images/header.png")),
-        ),
+      Positioned(
+        top: 0,
+        left: MediaQuery.of(context).size.width * 0.32,
+        child: SizedBox(
+            width: 140,
+            height: 100,
+            child: Image.asset("assets/images/header.png")),
+      ),
       Positioned(
         right: 10,
         child: IconButton(
@@ -94,17 +98,19 @@ Widget fullAppbar( {BuildContext context, GlobalKey<ScaffoldState> scaffoldkey})
             color: ColorManager.blue,
           ),
         ),
-      ),IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back,
-              color: ColorManager.blue,
-            ))
+      ),
+      IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: ColorManager.blue,
+          ))
     ],
   );
 }
+
 Widget defaultContinueAsButton({
   Color background = ColorManager.blue,
   bool isUpperCase = true,
@@ -206,7 +212,7 @@ class ButtonWidget extends StatelessWidget {
       );
 }
 
-Widget CustombackAppBar(BuildContext context,Function back) {
+Widget CustombackAppBar(BuildContext context, Function back) {
   return SafeArea(
     child: Stack(
       children: [
@@ -235,8 +241,8 @@ Widget CustombackAppBar(BuildContext context,Function back) {
   );
 }
 
-Widget myDrawer(BuildContext context, Function tab1, Function tab2, Function tab3,
-    Function tab4, Function tab5, Function tab6) {
+Widget myDrawer(BuildContext context, Function tab1, Function tab2,
+    Function tab3, Function tab4, Function tab5, Function tab6) {
   return Drawer(
     child: SafeArea(
       child: Column(
@@ -349,7 +355,16 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2, Function tab
             selectedTileColor: Colors.blueGrey,
           ),
           ListTile(
-            onTap: tab6,
+            onTap: () {
+              ProfileDioHelper.logout().then((response) {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SignInParentLayout()));
+              }).catchError((error) {
+                print(error.toString());
+              });
+            },
             leading: const Icon(
               Icons.logout,
               size: 30,

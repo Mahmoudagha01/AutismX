@@ -1,5 +1,7 @@
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
+import 'package:autismx/shared/network/dio/parent_helper.dart';
+import 'package:autismx/shared/network/dio/profile_helper.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackView extends StatefulWidget {
@@ -10,6 +12,7 @@ class FeedbackView extends StatefulWidget {
 }
 
 class _FeedbackViewState extends State<FeedbackView> {
+  final feedbackController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,17 +72,21 @@ class _FeedbackViewState extends State<FeedbackView> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Image.asset("assets/images/angry.gif",width: MediaQuery.of(context).size.width *0.6/3 ,),
-                             
-                              Image.asset("assets/images/hearteyes.gif",width: MediaQuery.of(context).size.width *0.6/3),
-                              
+                              Image.asset(
+                                "assets/images/angry.gif",
+                                width:
+                                    MediaQuery.of(context).size.width * 0.6 / 3,
+                              ),
+                              Image.asset("assets/images/hearteyes.gif",
+                                  width: MediaQuery.of(context).size.width *
+                                      0.6 /
+                                      3),
                             ],
                           ),
-                          
                           Container(
                             margin: const EdgeInsets.all(12),
                             child: TextFormField(
-                              controller: TextEditingController(),
+                              controller: feedbackController,
                               maxLines: 8,
                               showCursor: true,
                               keyboardType: TextInputType.text,
@@ -110,7 +117,15 @@ class _FeedbackViewState extends State<FeedbackView> {
                               ),
                               child: MaterialButton(
                                 minWidth: 140,
-                                onPressed: () {},
+                                onPressed: () {
+                                  ParentDioHelper.createFeedback(
+                                          feedback: feedbackController.text)
+                                      .then((res) {
+                                    //TODO: feedback is sent
+                                  }).catchError((err) {
+                                    //error
+                                  });
+                                },
                                 child: const Text(
                                   'Send',
                                   style: TextStyle(

@@ -83,7 +83,7 @@ class Parent {
     address = json['address'];
     password = json['password'];
     childName = json['child_name'];
-    childAge = json['child_age'];
+    childAge = int.parse(json['child_age'].toString());
     childImage = json['child_image'];
     childGender = json['child_gender'];
     createdAt = json['created_at'];

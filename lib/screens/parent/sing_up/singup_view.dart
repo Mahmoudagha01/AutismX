@@ -1,6 +1,6 @@
-
-
 import 'package:autismx/screens/BNB/screens/screens.dart';
+import 'package:autismx/screens/common/profile_cubit.dart';
+import 'package:autismx/screens/common/profile_states.dart';
 import 'package:autismx/screens/parent/sing_in/signin_view.dart';
 import 'package:autismx/screens/parent/sing_up/cubit/signup_controller.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
@@ -13,37 +13,40 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubit/singup_states.dart';
 
 class SingUpParentLayout extends StatelessWidget {
-   SingUpParentLayout({Key key}) : super(key: key);
+  SingUpParentLayout({Key key}) : super(key: key);
 
+  var firstNameController = TextEditingController();
 
-  var firstNameController =TextEditingController();
+  var lastNameController = TextEditingController();
 
-  var lastNameController =TextEditingController();
+  var addressController = TextEditingController();
+  var childNameController = TextEditingController();
+  var childAgeController = TextEditingController();
+  var childImageController = TextEditingController();
+  var childGenderController = TextEditingController();
+  var phoneController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
-  var addressController =TextEditingController();
-  var childNameController =TextEditingController();
-  var childAgeController =TextEditingController();
-  var childImageController =TextEditingController();
-  var childGenderController =TextEditingController();
-  var phoneController =TextEditingController();
-  var emailController =TextEditingController();
-  var passwordController =TextEditingController();
-
-  var formKey =GlobalKey<FormState>();
-  bool isPassword=true;
-  bool checkbox=false;
+  var formKey = GlobalKey<FormState>();
+  bool isPassword = true;
+  bool checkbox = false;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => RegisterCubit(),
       child: BlocConsumer<RegisterCubit, RegisterScreenStates>(
-        listener: (context,state){
-          if(state is RegisterSuccessState){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Screens()));
-          }else{
-        
-   print("no");
+        listener: (context, state) {
+          if (state is RegisterSuccessState) {
+            ProfileCubit.get(context)
+                .emit(ProfileUpdateState(state.signupModel.data));
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (context) => Screens()));
+          } else if (state is RegisterUploadImageState) {
+            childImageController.text = state.imagePath;
+          } else {
+            print("no");
           }
         },
         builder: (context, state) {
@@ -252,8 +255,10 @@ class SingUpParentLayout extends StatelessWidget {
                                     lastName: lastNameController.text,
                                     address: addressController.text,
                                     phone: phoneController.text,
-                                    childAge: int.parse(childAgeController.text),
-                                    childGender: int.parse(childGenderController.text),
+                                    childAge:
+                                        int.parse(childAgeController.text),
+                                    childGender:
+                                        int.parse(childGenderController.text),
                                     childName: childNameController.text,
                                   );
                                   //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Screens()));
