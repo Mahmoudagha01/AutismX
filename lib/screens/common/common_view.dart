@@ -19,7 +19,7 @@ class _CommonState extends State<Common> {
       "title": "Impaired ability to talk and talk to others.",
     },
     {
-      "image": "assets/images/slider_common/3.png",
+      "image": "assets/images/slider_common/2.png",
       "title": "Not responding to orders and instructions.",
     },
     {
@@ -49,7 +49,7 @@ class _CommonState extends State<Common> {
           borderRadius: BorderRadius.circular(3),
           shape: BoxShape.rectangle,
           color:
-              _currentindex == index ? Colors.grey : Colors.grey.withOpacity(0.3)),
+              _currentindex == index ? Colors.blue : Colors.grey.withOpacity(0.3)),
     );
   }
 
@@ -90,7 +90,7 @@ class _CommonState extends State<Common> {
                  },
                  initialPage: 0,
                  autoPlay: true,
-                 height: MediaQuery.of(context).size.height * 0.55),
+                 height: MediaQuery.of(context).size.height * 0.45),
              itemBuilder: (context, index) => Container(
                margin: const EdgeInsets.all(10),
                decoration: BoxDecoration(
@@ -107,9 +107,10 @@ class _CommonState extends State<Common> {
                    ],
                    color: Colors.white,
                    borderRadius: BorderRadius.circular(15)),
-               height: MediaQuery.of(context).size.height * 0.55,
-               width: MediaQuery.of(context).size.width - 50,
+             
                child: Container(
+                   height: MediaQuery.of(context).size.height * 0.3,
+               width: MediaQuery.of(context).size.width - 50,
                  child: Column(
                    children: [
                      const Spacer(),

@@ -1,5 +1,3 @@
-
-
 import 'package:autismx/screens/BNB/screens/screens.dart';
 import 'package:autismx/screens/parent/sing_up/singup_view.dart';
 import 'package:autismx/shared/local/colors.dart';
@@ -23,11 +21,12 @@ class SignInParentLayout extends StatelessWidget {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Screens()));
           }else{
         
-   print("no");
+   print("error!");
           }
         },
         builder: (context,state){
           return Scaffold(
+            backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -41,18 +40,20 @@ class SignInParentLayout extends StatelessWidget {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.25,
+                          height: MediaQuery.of(context).size.height * 0.2,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                               image:  AssetImage("assets/images/Logo.png"),
                             ),
                           ),
                         ),
-                        const Text(
-                          'Sing In Now',
-                          style: TextStyle(
-                            color: ColorManager.blueFont,
-                            fontSize: 20,
+                        const Center(
+                          child:  Text(
+                            'Sign In Now',
+                            style: TextStyle(
+                              color: ColorManager.blueFont,
+                              fontSize: 20,
+                            ),
                           ),
                         ),
                         const SizedBox(
@@ -128,7 +129,7 @@ class SignInParentLayout extends StatelessWidget {
 
                               }
                             },
-                            text: 'SING IN',
+                            text: 'SIGN IN',
                           ),
                           condition: state is ! LoginLoadingState,
                           fallback:(context)=> const Center(child:  CircularProgressIndicator()),

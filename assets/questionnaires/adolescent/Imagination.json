@@ -1,0 +1,232 @@
+{
+    "isActive":false,
+    "name": "Imagination",
+    "image":"assets/images/img.png",
+    "instructions": "Please indicate your agreement or disagreement with the following statement. Please be open and honest in your responding.",
+    "questions": [
+        {
+            "text": "If I try to imagine something, I find it very easy to create a picture in my mind.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "When I’m reading a story, I can easily imagine what the characters might look like.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "I find making up stories easy.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+            "text": "When I’m reading a story, I find it difficult to work out the characters’ intentions.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "I don’t particularly enjoy reading fiction.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I would rather go to the theatre than a museum.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "When I was young, I used to enjoy playing games involving pretending with other children.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "I like to collect information about categories of things (e.g. types of car, types of bird, types of train, types of plant, etc.).",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "I find it difficult to imagine what it would be like to be someone else.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "I find it very easy to play games with children that involve pretending.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        }
+    ]
+}

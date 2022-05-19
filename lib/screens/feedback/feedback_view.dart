@@ -33,7 +33,7 @@ class _FeedbackViewState extends State<FeedbackView> {
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.75,
-                    height: MediaQuery.of(context).size.height * 0.75,
+                    height: MediaQuery.of(context).size.height * 0.65,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
@@ -67,7 +67,7 @@ class _FeedbackViewState extends State<FeedbackView> {
                             ),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                           mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset("assets/images/angry.gif",width: MediaQuery.of(context).size.width *0.6/3 ,),
                              
@@ -126,7 +126,7 @@ class _FeedbackViewState extends State<FeedbackView> {
                     ),
                   ),
                   Positioned(
-                    top: 25,
+                    top: 85,
                     child: CircleAvatar(
                       radius: 52,
                       backgroundColor: Colors.grey.withOpacity(0.2),

@@ -1,0 +1,233 @@
+{
+    "isActive":true,
+    "name": "Communication",
+    "image":"assets/images/communication.png",
+    "instructions": "Please indicate your agreement or disagreement with the following statement. Please be open and honest in your responding.",
+    "questions": [
+        {
+            "text": "Other people frequently tell me that what I’ve said is impolite, even though I think it is polite.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I enjoy social chit-chat.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "When I talk, it isn’t always easy for others to get a word in edgeways",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+            "text": "I frequently find that I don’t know how to keep a conversation going",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "I find it easy to “read between the lines” when someone is talking to me.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "I know how to tell if someone listening to me is getting bored.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "When I talk on the phone, I’m not sure when it’s my turn to speak.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+          
+            "text": "I am often the last to understand the point of a joke.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "I am good at social chit-chat.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+          
+            "text": "People often tell me that I keep going on and on about the same thing.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        }
+    ]
+    
+}

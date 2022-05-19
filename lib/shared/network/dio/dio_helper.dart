@@ -15,7 +15,21 @@ class DioHelper {
     );
   }
 
-  
+  static Future<Response> getData({
+    @required String url,
+    Map<String, dynamic> query,
+    String token,
+  }) async {
+    dio.options.headers = {
+      
+      'Authorization': token,
+    };
+
+    return await dio.get(
+      url,
+      queryParameters: query,
+    );
+  }
 
   static Future<Response> postData({
     @required String url,

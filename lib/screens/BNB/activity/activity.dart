@@ -1,4 +1,9 @@
+import 'package:autismx/screens/BNB/activity/attentionswitshng.dart';
 import 'package:autismx/screens/BNB/activity/attentiontodetails.dart';
+import 'package:autismx/screens/BNB/activity/comunication.dart';
+import 'package:autismx/screens/BNB/activity/imagination.dart';
+import 'package:autismx/screens/BNB/activity/learning.dart';
+import 'package:autismx/screens/BNB/activity/socialskils.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';
@@ -15,11 +20,11 @@ class Activity extends StatefulWidget {
 
 class _ActivityState extends State<Activity> {
   GlobalKey<ScaffoldState> Scaffoldkey = GlobalKey<ScaffoldState>();
-  Widget _activityCard() {
+  Widget _activityCard(int index) {
     return InkWell(
         onTap: () {
           Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => AttentionToDetails()),
+            MaterialPageRoute(builder: (context) =>  catgscreens[index]),
           );
         },
         child: Container(
@@ -45,12 +50,11 @@ class _ActivityState extends State<Activity> {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     image: DecorationImage(
-                        image: AssetImage("assets/images/social.png"))),
+                        image: AssetImage(Catg[index]["image"]))),
               ),
-              Text(
-                "name",
-                style:
-                    const TextStyle(fontSize: 17, color: ColorManager.greyFont),
+            Text(
+                Catg[index]["title"],
+                style: const TextStyle(fontSize: 17, color: ColorManager.greyFont),
               )
             ],
           ),
@@ -61,6 +65,23 @@ class _ActivityState extends State<Activity> {
           // )),
         ));
   }
+
+  List<Map<String, String>> Catg = [
+    {"title": "Learning", "image": "assets/images/learning.png"},
+    {"title": "Social Skills", "image": "assets/images/social.png"},
+    {"title": "Attention To Details", "image": "assets/images/detail.png"},
+    {"title": "Attention Switching", "image": "assets/images/switch.png"},
+    {"title": "Communication", "image": "assets/images/communication.png"},
+    {"title": "Imagination", "image": "assets/images/img.png"},
+  ];
+  List catgscreens = [
+    const Learning(),
+    const SocilSkills(),
+    const AttentionToDetails(),
+    const AttentionSwitching(),
+    const Communication(),
+    const Imagination()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -74,37 +95,44 @@ class _ActivityState extends State<Activity> {
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
-                    itemCount:6,
+                itemCount: 6,
                 itemBuilder: (context, index) {
-                  return _activityCard();
+                  return _activityCard(index);
                 },
               ),
             ),
           ],
         ),
       ),
-      endDrawer: myDrawer(context, () {
-        Navigator.push(
+      endDrawer: myDrawer(
           context,
-          MaterialPageRoute(
-            builder: (context) => ProfileScreen(),
-          ),
-        );
-      }, () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CenterLayout(),
-          ),
-        );
-      }, () {}, () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => FeedbackView(),
-            ),
-          );
-        }, () {}, () {}),
+          () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProfileScreen(),
+              ),
+            );
+          },
+          () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CenterLayout(),
+              ),
+            );
+          },
+          () {},
+          () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const FeedbackView(),
+              ),
+            );
+          },
+          () {},
+          () {}),
     );
   }
 }

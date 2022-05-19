@@ -204,13 +204,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                          controller: _Gendercontroller,
                          hintText: 'Enter Child Gender',
                          lableText: 'Child Gender',
-                         prifixicon: const ImageIcon(
-                           AssetImage(
-                             'assets/images/gender.png',
-                           ),
-                           
+                         prifixicon: const Icon(
+                           Icons.merge_type,
+                           size: 30,
                            color: ColorManager.blueFont,
                          ),
+                           
+                           
+                         
                          keyboardType: TextInputType.text),
                      Padding(
                        padding: const EdgeInsets.symmetric(vertical: 20),

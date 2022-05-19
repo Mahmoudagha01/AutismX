@@ -1,0 +1,232 @@
+{    
+    "isActive":true,
+    "name": "Social Skills",
+    "image":"assets/images/social.png",
+    "instructions": "Please indicate your agreement or disagreement with the following statement. Please be open and honest in your responding.",
+    "questions": [
+        {
+            "text": "I prefer to do things with others rather than on my own.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "I find social situations easy.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "I would rather go to a library than a party.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+            "text": "I find myself drawn more strongly to people than to things.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ] 
+        },
+        {
+            "text": "I find it hard to make new friends.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I find it easy to work out what someone is thinking or feeling just by looking at their face.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+            "text": "I enjoy social occasions.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "I find it difficult to work out people’s intentions.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+          
+            "text": "I enjoy meeting new people.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+          
+            "text": "I am a good diplomat.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        }
+    ]
+}

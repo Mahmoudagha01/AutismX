@@ -60,7 +60,7 @@ class OnBoardingPage extends StatelessWidget {
             showNextButton: true,
 
             showSkipButton: true,
-            skip: const Text('Skip',style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: ColorManager.greyFont),),
+            skip: const Text('Skip',style:  TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: ColorManager.greyFont),),
             onSkip: () => goToHome(context),
             next: const Text('Next',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: ColorManager.blueFont),),
             dotsDecorator: getDotDecoration(),
@@ -98,10 +98,10 @@ class OnBoardingPage extends StatelessWidget {
         titleTextStyle: const TextStyle(
           fontSize: 28,
           fontWeight: FontWeight.bold,
-          color: const Color.fromARGB(255, 39, 143, 221),
+          color:  Color.fromARGB(255, 39, 143, 221),
         ),
         bodyTextStyle:
-            const TextStyle(fontSize: 20, color: const Color.fromARGB(255, 122, 122, 122)),
+            const TextStyle(fontSize: 20, color:  Color.fromARGB(255, 122, 122, 122)),
         descriptionPadding: const EdgeInsets.all(16).copyWith(bottom: 0),
         imagePadding: const EdgeInsets.all(24),
         pageColor: Colors.white,

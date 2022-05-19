@@ -4,8 +4,6 @@ import 'package:autismx/shared/local/component.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-
-
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class CenterLayout extends StatefulWidget {
@@ -22,14 +20,15 @@ class _CenterLayoutState extends State<CenterLayout> {
     "assets/images/center 2.png",
     "assets/images/center3.png",
   ];
-    GlobalKey<ScaffoldState> Scaffoldkey=GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> Scaffoldkey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    key: Scaffoldkey,
+      key: Scaffoldkey,
       body: Column(
         children: [
-          SafeArea(child: fullAppbar(context: context,scaffoldkey: Scaffoldkey)),
+          SafeArea(
+              child: fullAppbar(context: context, scaffoldkey: Scaffoldkey)),
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: defaultFormField(
@@ -47,112 +46,160 @@ class _CenterLayoutState extends State<CenterLayout> {
           ),
           // i did the search bar the ugly way
           // still we will modify it as we will make it actual search when we add the list of centers from API
-      Expanded(child: SingleChildScrollView(
-        child: Column(
-          children: [
-            
-          // here is the main container that will bd duplicated many times as the API tell us how many
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height / 1.5,
-              width: MediaQuery.of(context).size.width / 1.5,
-              color: Colors.black12,
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
-                    height:  MediaQuery.of(context).size.height * 0.43,
-                    width: MediaQuery.of(context).size.width / 1.5,
-                    child: Stack(
-                      children: [
-                        Container(
-                            
-                            width: MediaQuery.of(context).size.width / 1.5,
-                            child: Image.asset(
-                              "assets/images/centerbg.png",
-                              fit: BoxFit.fill,
-                            )),
-                        CarouselSlider.builder(
-                          itemCount: _images.length,
-                          options: CarouselOptions(
-                              initialPage: 0,
-                              autoPlay: true,
-                              height:
-                                  MediaQuery.of(context).size.height * 0.35),
-                          itemBuilder: (context, index) => Container(
-                            margin: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                               
-                                borderRadius: BorderRadius.circular(15)),
-                            height: MediaQuery.of(context).size.height * 0.35,
-             
-                            child: Container(
-                              child: Column(
-                                children: [
-                                  Container(
+                  // here is the main container that will bd duplicated many times as the API tell us how many
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.6,
+                      width: MediaQuery.of(context).size.width - 100,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                              offset: Offset(0, 0),
+                              // The alignment of the effect(x,y)
+                              spreadRadius: 1,
+                              //Spread radius means how much it will spread
+                              blurRadius: 5,
+                              //How big the blus will be
+                              color: Colors.grey //color of the effect.
+                              )
+                        ],
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.34,
+                            width: MediaQuery.of(context).size.width,
+                            child: Stack(
+                              children: [
+                                Container(
+                                    width:
+                                        MediaQuery.of(context).size.width - 60,
+                                    child: Image.asset(
+                                      "assets/images/centerbg.png",
+                                      fit: BoxFit.fill,
+                                    )),
+                                CarouselSlider.builder(
+                                  itemCount: _images.length,
+                                  options: CarouselOptions(
+                                      initialPage: 0,
+                                      autoPlay: true,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.3),
+                                  itemBuilder: (context, index) => Container(
+                                    margin: const EdgeInsets.all(10),
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(15)),
                                     height: MediaQuery.of(context).size.height *
                                         0.3,
-                                    child: Image.asset(
-                                      _images[index],
-                                      fit: BoxFit.fill,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.2,
+                                          child: Image.asset(
+                                            _images[index],
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                                Positioned(
+                                  bottom: 10,
+                                  left: 45,
+                                  child: Container(
+                                    width: 80,
+                                    height: 80,
+                                    decoration: const BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.white,
+                                    ),
+                                    child: Image.asset(
+                                      "assets/images/c3.png",
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                        Positioned(
-                            width: 50,
-                            height: 70,
-                            bottom: 0,
-                            left: 50,
-                            child: Image.asset("assets/images/c1.png")),
-                      ],
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            'Autismo',
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          //the information i leave it that way so when we apply the API we will know each one
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: Colors.blue,
+                              ),
+                              Text(
+                                'Mansoura',
+                                style: TextStyle(
+                                    color: ColorManager.greyFont,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 22),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const [
+                              Icon(
+                                Icons.call,
+                                color: Colors.blue,
+                              ),
+                              Text(
+                                '01000781045',
+                                style: TextStyle(
+                                    color: ColorManager.greyFont,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 20),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          // the rating when we apply the stateManagement we will use we will save it in Share preference
+                          SmoothStarRating(
+                            rating: 0,
+                            isReadOnly: false,
+                            size: 30,
+                            filledIconData: Icons.star,
+                            halfFilledIconData: Icons.star_half,
+                            defaultIconData: Icons.star_border,
+                            starCount: 5,
+                            allowHalfRating: true,
+                            spacing: 2.0,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text(
-                    'Autismo',
-                    style: TextStyle(
-                        color: ColorManager.blueFont,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //the information i leave it that way so when we apply the API we will know each one
-                  const Text(
-                    'Location',
-                    style: TextStyle(
-                        color: ColorManager.blueFont,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text(
-                    'Mobile Phone',
-                    style: TextStyle(
-                        color: ColorManager.blueFont,
-                        fontWeight: FontWeight.w500),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  // the rating when we apply the stateManagement we will use we will save it in Share preference
-                  SmoothStarRating(
-                    rating: 0,
-                    isReadOnly: false,
-                    size: 30,
-                    filledIconData: Icons.star,
-                    halfFilledIconData: Icons.star_half,
-                    defaultIconData: Icons.star_border,
-                    starCount: 5,
-                    allowHalfRating: true,
-                    spacing: 2.0,
                   ),
                 ],
               ),
@@ -160,26 +207,21 @@ class _CenterLayoutState extends State<CenterLayout> {
           ),
         ],
       ),
-          
-        ),
-      ),
-        ],
-      ),
-       endDrawer: myDrawer(context, () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProfileScreen(),
-            ),
-          );
-        }, () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CenterLayout(),
-            ),
-          );
-        }, () {}, () {}, () {}, () {}),
+      endDrawer: myDrawer(context, () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProfileScreen(),
+          ),
+        );
+      }, () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CenterLayout(),
+          ),
+        );
+      }, () {}, () {}, () {}, () {}),
     );
   }
 }

@@ -246,14 +246,14 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2, Function tab
             height: MediaQuery.of(context).size.height * 0.25,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: const AssetImage("assets/images/drawer1.png"),
+                    image:  AssetImage("assets/images/drawer1.png"),
                     fit: BoxFit.fill)),
 
             //color: Colors.red,
             child: Stack(
               children: [
                 Positioned(
-                  top: 65,
+                  top: 90,
                   left: 50,
                   child: CircleAvatar(
                     radius: 40,

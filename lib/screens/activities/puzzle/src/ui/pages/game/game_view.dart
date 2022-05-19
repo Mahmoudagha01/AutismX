@@ -62,11 +62,9 @@ class GameView extends StatelessWidget {
       ),
      
      
-      child: GameBackground(
-        
-        child: Scaffold(
+      child:  Scaffold(
           
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           body: SafeArea(
             child: OrientationBuilder(
               builder: (_, orientation) {
@@ -130,7 +128,7 @@ class GameView extends StatelessWidget {
             ),
           ),
         ),
-      ),
+     
     );
   }
 }

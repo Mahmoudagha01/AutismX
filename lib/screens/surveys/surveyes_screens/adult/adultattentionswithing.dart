@@ -83,7 +83,7 @@ class _AdultAttentionSwithState extends State<AdultAttentionSwith> {
                         Positioned(
                           top: 0,
                           left: MediaQuery.of(context).size.width * 0.32,
-                          child: Container(
+                          child: SizedBox(
                               width: 140,
                               height: 100,
                               child: Image.asset("assets/images/header.png")),
@@ -111,14 +111,14 @@ class _AdultAttentionSwithState extends State<AdultAttentionSwith> {
                                     : _showDialog(context);
                               },
                               child: Container(
-                              margin: EdgeInsets.all(15),
+                              margin: const EdgeInsets.all(15),
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
                                 color: Colors.white,
                                 boxShadow: [
                                   BoxShadow(
-                                    offset: Offset(0, 1),
+                                    offset: const Offset(0, 1),
                                     blurRadius: 5,
                                     color: Colors.black.withOpacity(0.3),
                                   )
@@ -139,7 +139,7 @@ class _AdultAttentionSwithState extends State<AdultAttentionSwith> {
                                   ),
                                   Text(
                                     questionnaire.name,
-                                    style: TextStyle(fontSize: 17,color: ColorManager.greyFont),
+                                    style: const TextStyle(fontSize: 17,color: ColorManager.greyFont),
                                   )
                                 ],
                               ),

@@ -43,11 +43,12 @@ class SingUpParentLayout extends StatelessWidget {
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Screens()));
           }else{
         
-   print("no");
+   print("error");
           }
         },
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.white,
             body: SafeArea(
               child: SingleChildScrollView(
                 child: Center(

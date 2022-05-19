@@ -1,0 +1,233 @@
+{
+    "isActive":true,
+    "name": "Attention To Detail",
+    "image":"assets/images/detail.png",
+    "instructions": "Please indicate your agreement or disagreement with the following statement. Please be open and honest in your responding.",
+    "questions": [
+        {
+            "text": "I often notice small sounds when others do not.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I usually notice car number plates or similar strings of information.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+          
+            "text": "I am fascinated by dates.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]  
+        },
+        {
+            "text": "I tend to notice details that others do not.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ] 
+        },
+        {
+            "text": "I am fascinated by numbers.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I notice patterns in things all the time.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 1
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 0
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 0
+                }
+            ]
+        },
+        {
+            "text": "I usually concentrate more on the whole picture, rather than the small details.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]
+        },
+        {
+          
+            "text": "I am not very good at remembering phone numbers.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score": 1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+          
+            "text": "I don’t usually notice small changes in a situation, or a person’s appearance.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        },
+        {
+          
+            "text": "I am not very good at remembering people’s date of birth.",
+            "answers": [
+               
+                {
+                    "text": "Definitely Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Agree",
+                    "score": 0
+                },
+                {
+                    "text": "Slightly Disagree",
+                    "score":1
+                },
+                {
+                    "text": "Definitely Disagree",
+                    "score": 1
+                }
+            ]  
+        }
+    ]
+    
+}

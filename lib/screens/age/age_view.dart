@@ -1,5 +1,8 @@
 
 import 'package:autismx/screens/centers/center_view.dart';
+import 'package:autismx/screens/common/common_adult.dart';
+import 'package:autismx/screens/common/common_infant.dart';
+import 'package:autismx/screens/common/common_toddler.dart';
 import 'package:autismx/screens/common/common_view.dart';
 import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';
@@ -12,13 +15,36 @@ class Age extends StatefulWidget {
 }
 
 class _AgeState extends State<Age> {
-  Widget AgeCard(){
+  List<Map> images = [
+    {
+      "image": "assets/images/infant.png",
+      "title": "Infant",
+      "goto":CommonInfant()
+    },
+    {
+      "image": "assets/images/one.png",
+      "title": "toddler 1 - 3",
+        "goto":CommonToddler()
+    },
+    {
+      "image": "assets/images/school.png",
+      "title": "Ages 4 to 11",
+        "goto":Common()
+    },
+    {
+      "image": "assets/images/Adult.png",
+      "title": "Adults",
+        "goto":CommonAdult()
+    },
+    
+  ];
+  Widget AgeCard(int index){
     return  InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Common()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => images[index]["goto"]));
       },
       child: Padding(
-        padding: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(10.0),
         child: Container(
           margin: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -45,16 +71,16 @@ class _AgeState extends State<Age> {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    image: const DecorationImage(
+                                    image: DecorationImage(
                                       image:  AssetImage(
-                                        "assets/images/infant.png",
+                                        images[index]["image"],
                                       ),
                                     )),
                               ),
                               
-                              const Text(
-                                "Infant",
-                                style:  TextStyle(
+                               Text(
+                                 images[index]["title"],
+                                style:  const TextStyle(
                                     color: Color.fromARGB(255, 122, 122, 122),
                                     fontSize: 20),
                               )
@@ -72,12 +98,15 @@ class _AgeState extends State<Age> {
       body: Column(
         children: [
         SafeArea(child: fullAppbar(context: context,scaffoldkey: scaffoldkey)),
-          const Text(
-            'Age Categories',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 39, 143, 221),
-                fontSize: 30),
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              'Age Categories',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 39, 143, 221),
+                  fontSize: 30),
+            ),
           ),
           Expanded(
             child: GridView.builder(
@@ -85,7 +114,7 @@ class _AgeState extends State<Age> {
                 gridDelegate:
                     const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 itemBuilder: (context, index) {
-                  return AgeCard();
+                  return AgeCard(index);
                 }),
           )
         ],

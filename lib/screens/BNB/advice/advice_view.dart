@@ -1,7 +1,13 @@
-
+import 'package:autismx/screens/BNB/advice/social.dart';
+import 'package:autismx/screens/BNB/screens/appstates.dart';
+import 'package:autismx/screens/BNB/screens/screens_controller.dart';
+import 'package:autismx/screens/age/age_view.dart';
+import 'package:autismx/screens/common/common_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
+import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Advices extends StatefulWidget {
   const Advices({Key key}) : super(key: key);
@@ -16,7 +22,7 @@ class _AdvicesState extends State<Advices> {
 
   Widget build(BuildContext context) {
     
-    Widget _Advice(int index) {
+    Widget _Advice(int index,var list) {
       return Container(
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         width: MediaQuery.of(context).size.width - 50,
@@ -38,14 +44,14 @@ class _AdvicesState extends State<Advices> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image:
-                    DecorationImage(image: AssetImage("assets/images/Six.png",))),
+                    DecorationImage(image: NetworkImage(list[index]["image"]))),
           ),
-          const Padding(
-            padding: EdgeInsets.all(4.0),
+          Padding(
+            padding: const EdgeInsets.all(4.0),
             child: Text(
-              "involve him in group and charitable activities",
+              list[index]["advice"],
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                   overflow: TextOverflow.clip,
                   fontSize: 17,
                   color: ColorManager.greyFont),
@@ -74,8 +80,8 @@ class _AdvicesState extends State<Advices> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.25,
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.2,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
@@ -89,10 +95,12 @@ class _AdvicesState extends State<Advices> {
                 ),
                 child: Column(children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>Age()));
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.16,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -100,7 +108,7 @@ class _AdvicesState extends State<Advices> {
                           ),
                           image: DecorationImage(
                               image:
-                                  AssetImage("assets/images/teenagers.png"))),
+                                  AssetImage("assets/images/Detailed.png"))),
                     ),
                   ),
                   const Expanded(
@@ -115,8 +123,8 @@ class _AdvicesState extends State<Advices> {
                 ]),
               ),
               Container(
-                width: MediaQuery.of(context).size.width * 0.45,
-                height: MediaQuery.of(context).size.height * 0.25,
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.2,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
@@ -130,10 +138,12 @@ class _AdvicesState extends State<Advices> {
                 ),
                 child: Column(children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,MaterialPageRoute(builder: (context)=>Social()));
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.16,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(15),
@@ -141,7 +151,7 @@ class _AdvicesState extends State<Advices> {
                           ),
                           image: DecorationImage(
                               image:
-                                  AssetImage("assets/images/teenagers.png"))),
+                                  AssetImage("assets/images/social.png"),),),
                     ),
                   ),
                   const Expanded(
@@ -159,19 +169,30 @@ class _AdvicesState extends State<Advices> {
           ),
           const Padding(
             padding: EdgeInsets.only(top: 25),
-            child: Text('Some advices will help you'),
+            child: Text('Some advices will help you',
+              style: TextStyle(
+                  fontSize: 22,
+                  color: ColorManager.blue,
+                  fontWeight: FontWeight.bold),),
           ),
           Expanded(
-            child: ListView.builder(
+            child: BlocConsumer<AppCubit, AppStates>(
+                listener: (context, state) {},
+                builder: (context, state) {
+                  var list = AppCubit.get(context).AdvicesList;
+                  return ConditionalBuilder(
+                    condition: state is !GetAdvicesLoadingState,
+                    builder: (context) => ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: 6,
+                      itemCount: list.length,
                       itemBuilder: (context, index) {
-                        return _Advice(index);
+                        return _Advice(index,list);
                       },
-                   
-                    
-                  
-                ),
+                    ),
+                    fallback: (context) =>
+                        const Center(child: CircularProgressIndicator()),
+                  );
+                }),
           ),
         ]),
       ),

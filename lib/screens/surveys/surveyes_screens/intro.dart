@@ -1,10 +1,14 @@
 import 'package:autismx/screens/surveys/configs/colors.dart';
+import 'package:autismx/screens/surveys/surveyes_screens/adolescent/adolescentsocialskills.dart';
 import 'package:autismx/screens/surveys/surveyes_screens/adult/adultsocialskills.dart';
+import 'package:autismx/screens/surveys/surveyes_screens/child/childcategory.dart';
 import 'package:autismx/screens/surveys/surveyes_screens/children4/child4socialskills.dart';
 import 'package:autismx/screens/surveys/widgets/button.dart';
 
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
+
+import 'child/child_questionnaire.dart';
 
 class Intro extends StatefulWidget {
   const Intro({Key key}) : super(key: key);
@@ -135,7 +139,31 @@ class _IntroState extends State<Intro> {
                         ),
                       ),
                     );
-                  } else {}
+                  }  else if (int.parse(ageController.text) >= 12 &&
+                      int.parse(ageController.text) <= 15) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdolescentSocialSkills(
+                          name: nameController.text,
+                          age: ageController.text,
+                          gender: _selectedgender,
+                        ),
+                      ),
+                    );
+                  } else if (int.parse(ageController.text) >= 1 &&
+                      int.parse(ageController.text) <= 3) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChildCategory(
+                          name: nameController.text,
+                          age: ageController.text,
+                          gender: _selectedgender, 
+                        ),
+                      ),
+                    );
+                  }else{}
                 },
                 text: "Submit".toUpperCase(),
               ),

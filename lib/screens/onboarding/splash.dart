@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Timer(Duration(milliseconds: 2550), () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const SignInParentLayout())),);
+    Timer(Duration(seconds: 5), () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const SignInParentLayout())),);
 
     super.initState();
   }
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
   
     return Scaffold(
-      backgroundColor: Color.fromRGBO(252, 252, 255, 1),
+      backgroundColor: Colors.white,
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width,

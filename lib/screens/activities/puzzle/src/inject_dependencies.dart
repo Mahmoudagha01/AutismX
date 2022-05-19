@@ -7,7 +7,7 @@ import 'domain/repositories/audio_repository.dart';
 import 'domain/repositories/images_repository.dart';
 
 
-Future<void> injectDependencies() async {
+Future<void> inject_Dependencies() async {
  
   final session = await AudioSession.instance;
   await session.configure(
