@@ -1,14 +1,22 @@
-abstract class RegisterScreenStates{}
+import 'package:autismx/shared/models/signupmodel.dart';
 
-class RegisterInitialState extends RegisterScreenStates{}
+abstract class RegisterScreenStates {}
 
-class RegisterLoadingState extends RegisterScreenStates{}
+class RegisterInitialState extends RegisterScreenStates {}
 
-class RegisterSuccessState extends RegisterScreenStates{}
+class RegisterLoadingState extends RegisterScreenStates {}
 
-class RegisterUploadImageState extends RegisterScreenStates{}
+class RegisterSuccessState extends RegisterScreenStates {
+  final SignupModel signupModel;
+  RegisterSuccessState(this.signupModel);
+}
 
-class RegisterErrorState extends RegisterScreenStates{
+class RegisterUploadImageState extends RegisterScreenStates {
+  final String imagePath;
+  RegisterUploadImageState(this.imagePath);
+}
+
+class RegisterErrorState extends RegisterScreenStates {
   final String error;
 
   RegisterErrorState(this.error);

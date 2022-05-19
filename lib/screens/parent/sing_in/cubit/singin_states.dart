@@ -1,12 +1,17 @@
-abstract class LoginScreenStates{}
+import 'package:autismx/shared/models/signinmodel.dart';
 
-class LoginInitialState extends LoginScreenStates{}
+abstract class LoginScreenStates {}
 
-class LoginLoadingState extends LoginScreenStates{}
+class LoginInitialState extends LoginScreenStates {}
 
-class LoginSuccessState extends LoginScreenStates{}
+class LoginLoadingState extends LoginScreenStates {}
 
-class LoginErrorState extends LoginScreenStates{
+class LoginSuccessState extends LoginScreenStates {
+  final SigninModel signinModel;
+  LoginSuccessState(this.signinModel);
+}
+
+class LoginErrorState extends LoginScreenStates {
   final String error;
 
   LoginErrorState(this.error);

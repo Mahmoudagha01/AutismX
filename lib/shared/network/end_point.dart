@@ -1,6 +1,17 @@
-const login ='https://autismx.net/api/parent_login';
+const login = 'parent_login';
+const register = 'parent_register';
+const logout = 'parents/logout';
 
-const register ='parent_register';
+const updateParentProfile = 'parents/parent_profile';
+const updateParentScore = 'parents/score';
 
+const showAdvices = 'parents/advices';
+const createFeedback = 'parents/Feedback/create';
+const allCategories = 'parents/categories';
 
-const advices_link= 'https://autismx.net/api/parents/advices';
+const departementOfCategory = 'parents/departments';
+
+const allCenters = 'parents/centers';
+const centerByAddress = 'parents/center/address';
+
+const showParentScore = 'parents/my_scores';

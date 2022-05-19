@@ -1,8 +1,12 @@
 import 'package:autismx/screens/centers/center_view.dart';
+import 'package:autismx/screens/common/profile_cubit.dart';
+import 'package:autismx/screens/common/profile_states.dart';
 import 'package:autismx/shared/local/colors.dart';
 import 'package:autismx/shared/local/component.dart';
+import 'package:autismx/shared/models/signinmodel.dart';
+import 'package:autismx/shared/network/dio/profile_helper.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -26,6 +30,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       @required String lableText,
       @required Widget prifixicon,
       @required TextInputType keyboardType,
+      String initialValue,
       String Prefixtext,
       Widget suffixicon,
       bool visiblepassword = false}) {
@@ -47,212 +52,271 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
-  GlobalKey<ScaffoldState> Scaffoldkey=GlobalKey<ScaffoldState>();
+
+  GlobalKey<ScaffoldState> Scaffoldkey = GlobalKey<ScaffoldState>();
   @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
-       key: Scaffoldkey,
+      key: Scaffoldkey,
       body: SafeArea(
-        child: Column(
-          children: [
-            CustomAppBar(context: context,scaffoldkey: Scaffoldkey),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 170,
-                   
-                      child: Stack(
-                        children: [
-                          Positioned(
-                            left: MediaQuery.of(context).size.width / 2 - 50,
-                            top: 20,
-                            child: CircleAvatar(
-                              radius: 52,
-                              backgroundColor: Colors.grey.withOpacity(0.2),
-                              child: CircleAvatar(
-                                radius: 48,
-                                backgroundColor: Colors.white,
-                                child: Image.asset(
-                                  'assets/images/Profile.png',
-                                  fit: BoxFit.cover,
-                                  width: 70,
-                                  height: 70,
+        child: BlocConsumer<ProfileCubit, ProfileStates>(
+          listener: (context, state) {},
+          builder: (context, state) {
+            final parent = (state as ProfileUpdateState).profile;
+            print(parent.address);
+            _Namecontroller.text = _Namecontroller.text.isEmpty
+                ? "${parent.firstName} ${parent.secondName}"
+                : _Namecontroller.text;
+            _Emailcontroller.text = _Emailcontroller.text.isEmpty
+                ? parent.email
+                : _Emailcontroller.text;
+            _Phonecontroller.text = _Phonecontroller.text.isEmpty
+                ? parent.phone
+                : _Phonecontroller.text;
+            _Adresscontroller.text = _Adresscontroller.text.isEmpty
+                ? parent.address
+                : _Adresscontroller.text;
+            _Childnamecontroller.text = _Childnamecontroller.text.isEmpty
+                ? parent.childName
+                : _Childnamecontroller.text;
+            _Childagecontroller.text = _Childagecontroller.text.isEmpty
+                ? parent.childAge.toString()
+                : _Childagecontroller.text;
+            _Gendercontroller.text = _Gendercontroller.text.isEmpty
+                ? parent.childGender
+                : _Gendercontroller.text;
+            return Column(
+              children: [
+                CustomAppBar(context: context, scaffoldkey: Scaffoldkey),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 170,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                left:
+                                    MediaQuery.of(context).size.width / 2 - 50,
+                                top: 20,
+                                child: CircleAvatar(
+                                  radius: 52,
+                                  backgroundColor: Colors.grey.withOpacity(0.2),
+                                  child: CircleAvatar(
+                                    radius: 48,
+                                    backgroundColor: Colors.white,
+                                    child: Image.network(
+                                      parent.childImage,
+                                      fit: BoxFit.cover,
+                                      width: 70,
+                                      height: 70,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                          Positioned(
-                            left: MediaQuery.of(context).size.width / 2 - 50,
-                            top: 90,
-                            child: CircleAvatar(
-                              radius: 20,
-                              backgroundColor: ColorManager.blueFont,
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.insert_photo_outlined,
-                                  color: Colors.white,
+                              Positioned(
+                                left:
+                                    MediaQuery.of(context).size.width / 2 - 50,
+                                top: 90,
+                                child: CircleAvatar(
+                                  radius: 20,
+                                  backgroundColor: ColorManager.blueFont,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      ProfileCubit.get(context)
+                                          .uploadChildImage();
+                                    },
+                                    icon: const Icon(
+                                      Icons.insert_photo_outlined,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ),
-                         
-                        Positioned(
-                          bottom: 10,
-                           left: MediaQuery.of(context).size.width / 2 - 60,
-                          child: const Text(
-                            'Mohamed',
-                            style:  TextStyle(
-                              fontSize: 25,
-                              color: ColorManager.blueFont,
-                            ),
+                              Positioned(
+                                bottom: 10,
+                                left:
+                                    MediaQuery.of(context).size.width / 2 - 60,
+                                child: Text(
+                                  parent.firstName,
+                                  style: const TextStyle(
+                                    fontSize: 25,
+                                    color: ColorManager.blueFont,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                        ],
-                      ),
+                        _Textformfield(
+                          controller: _Namecontroller,
+                          hintText: 'Enter Full Name',
+                          lableText: 'Name',
+                          prifixicon: const Icon(
+                            Icons.person,
+                            color: ColorManager.blueFont,
+                          ),
+                          keyboardType: TextInputType.text,
+                        ),
+                        _Textformfield(
+                            controller: _Emailcontroller,
+                            hintText: 'Enter Email Adress',
+                            lableText: 'E-mail',
+                            prifixicon: const Icon(
+                              Icons.email,
+                              color: ColorManager.blueFont,
+                            ),
+                            keyboardType: TextInputType.emailAddress),
+                        _Textformfield(
+                          controller: _Passwordcontroller,
+                          hintText: 'Enter Password',
+                          lableText: 'Password',
+                          prifixicon: const Icon(
+                            Icons.lock,
+                            color: ColorManager.blueFont,
+                          ),
+                          keyboardType: TextInputType.visiblePassword,
+                          suffixicon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _isobsecure = !_isobsecure;
+                                });
+                              },
+                              icon: Icon(_isobsecure
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              color: ColorManager.blueFont),
+                          visiblepassword: _isobsecure,
+                        ),
+                        _Textformfield(
+                          controller: _Phonecontroller,
+                          hintText: 'Enter phone Number',
+                          lableText: 'Phone Number',
+                          prifixicon: const Icon(
+                            Icons.phone,
+                            color: ColorManager.blueFont,
+                          ),
+                          keyboardType: TextInputType.phone,
+                          Prefixtext: '+20   ',
+                        ),
+                        _Textformfield(
+                            controller: _Adresscontroller,
+                            hintText: 'Enter Address',
+                            lableText: 'Address',
+                            prifixicon: const Icon(
+                              Icons.location_on,
+                              color: ColorManager.blueFont,
+                            ),
+                            keyboardType: TextInputType.streetAddress),
+                        _Textformfield(
+                            controller: _Childnamecontroller,
+                            hintText: 'Enter Child Name',
+                            lableText: 'Child Name',
+                            prifixicon: const Icon(
+                              Icons.child_care,
+                              size: 30,
+                              color: ColorManager.blueFont,
+                            ),
+                            /*ImageIcon(
+                                   AssetImage('assets/images/childd.png',),
+                                   size: 3,
+                                   color: ColorManager.blueFont,
+                                 ),*/
+                            keyboardType: TextInputType.text),
+                        _Textformfield(
+                            controller: _Childagecontroller,
+                            hintText: 'Enter Child Age',
+                            lableText: 'Child Age',
+                            prifixicon: const Icon(
+                              Icons.tag,
+                              size: 30,
+                              color: ColorManager.blueFont,
+                            ),
+                            keyboardType: TextInputType.number),
+                        _Textformfield(
+                            controller: _Gendercontroller,
+                            hintText: 'Enter Child Gender',
+                            lableText: 'Child Gender',
+                            prifixicon: const Icon(
+                              Icons.merge_type,
+                              size: 30,
+                              color: ColorManager.blueFont,
+                            ),
+                            keyboardType: TextInputType.text),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: ColorManager.blueFont,
+                                borderRadius: BorderRadius.circular(10)),
+                            child: MaterialButton(
+                              onPressed: () {
+                                ProfileDioHelper.updateParentProfile(
+                                        firstName:
+                                            _Namecontroller.text.split(" ")[0],
+                                        lastName:
+                                            _Namecontroller.text.split(" ")[0],
+                                        address: _Adresscontroller.text,
+                                        phone: _Phonecontroller.text,
+                                        email: _Emailcontroller.text,
+                                        password:
+                                            _Passwordcontroller.text.isNotEmpty
+                                                ? _Passwordcontroller.text
+                                                : null,
+                                        childName: _Childnamecontroller.text,
+                                        childAge:
+                                            int.parse(_Childagecontroller.text),
+                                        childGender:
+                                            _Gendercontroller.text == "female"
+                                                ? 1
+                                                : 0,
+                                        childImageFile:
+                                            ProfileCubit.get(context).file)
+                                    .then((response) {
+                                  final newParent =
+                                      Parent.fromJson(response.data["data"]);
+                                  ProfileCubit.get(context)
+                                      .emit(ProfileUpdateState(newParent));
+                                }).catchError((err) {
+                                  print(err);
+                                });
+                              },
+                              child: const Text(
+                                'Save',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 25),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-            _Textformfield(
-                       controller: _Namecontroller,
-                       hintText: 'Enter Full Name',
-                       lableText: 'Name',
-                       prifixicon: const Icon(
-                         Icons.person,
-                         color: ColorManager.blueFont,
-                       ),
-                       keyboardType: TextInputType.text,
-                     ),
-                     _Textformfield(
-                         controller: _Emailcontroller,
-                         hintText: 'Enter Email Adress',
-                         lableText: 'E-mail',
-                         prifixicon: const Icon(
-                           Icons.email,
-                           color: ColorManager.blueFont,
-                         ),
-                         keyboardType: TextInputType.emailAddress),
-                     _Textformfield(
-                       controller: _Passwordcontroller,
-                       hintText: 'Enter Password',
-                       lableText: 'Password',
-                       prifixicon: const Icon(
-                         Icons.lock,
-                         color: ColorManager.blueFont,
-                       ),
-                       keyboardType: TextInputType.visiblePassword,
-                       suffixicon: IconButton(
-                           onPressed: () {
-                             setState(() {
-                               _isobsecure = !_isobsecure;
-                             });
-                           },
-                           icon: Icon(_isobsecure
-                               ? Icons.visibility
-                               : Icons.visibility_off),
-                           color: ColorManager.blueFont),
-                       visiblepassword: _isobsecure,
-                     ),
-                     _Textformfield(
-                       controller: _Phonecontroller,
-                       hintText: 'Enter phone Number',
-                       lableText: 'Phone Number',
-                       prifixicon: const Icon(
-                         Icons.phone,
-                         color: ColorManager.blueFont,
-                       ),
-                       keyboardType: TextInputType.phone,
-                       Prefixtext: '+20   ',
-                     ),
-                     _Textformfield(
-                         controller: _Adresscontroller,
-                         hintText: 'Enter Address',
-                         lableText: 'Address',
-                         prifixicon: const Icon(
-                           Icons.location_on,
-                           color: ColorManager.blueFont,
-                         ),
-                         keyboardType: TextInputType.streetAddress),
-                     _Textformfield(
-                         controller: _Childnamecontroller,
-                         hintText: 'Enter Child Name',
-                         lableText: 'Child Name',
-                         prifixicon: const Icon(
-                           Icons.child_care,
-                           size: 30,
-                           color: ColorManager.blueFont,
-                         ),
-                         /*ImageIcon(
-                           AssetImage('assets/images/childd.png',),
-                           size: 3,
-                           color: ColorManager.blueFont,
-                         ),*/
-                         keyboardType: TextInputType.text),
-                     _Textformfield(
-                         controller: _Childagecontroller,
-                         hintText: 'Enter Child Age',
-                         lableText: 'Child Age',
-                         prifixicon: const Icon(
-                           Icons.tag,
-                           size: 30,
-                           color: ColorManager.blueFont,
-                         ),
-                         keyboardType: TextInputType.number),
-                     _Textformfield(
-                         controller: _Gendercontroller,
-                         hintText: 'Enter Child Gender',
-                         lableText: 'Child Gender',
-                         prifixicon: const Icon(
-                           Icons.merge_type,
-                           size: 30,
-                           color: ColorManager.blueFont,
-                         ),
-                           
-                           
-                         
-                         keyboardType: TextInputType.text),
-                     Padding(
-                       padding: const EdgeInsets.symmetric(vertical: 20),
-                       child: Container(
-                         width: MediaQuery.of(context).size.width * 0.7,
-                         height: 60,
-                         decoration: BoxDecoration(
-                             color: ColorManager.blueFont,
-                             borderRadius: BorderRadius.circular(10)),
-                         child: MaterialButton(
-                           onPressed: () {},
-                           child: const Text(
-                             'Save',
-                             style: TextStyle(color: Colors.white, fontSize: 25),
-                           ),
-                         ),
-                       ),
-                     )
-                  ],
-                ),
-              ),
-            )
-          ],
+                  ),
+                )
+              ],
+            );
+          },
         ),
-        
       ),
       endDrawer: myDrawer(context, () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ProfileScreen(),
-            ),
-          );
-        }, () {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => CenterLayout(),
-            ),
-          );
-        }, () {}, () {}, () {}, () {}),
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProfileScreen(),
+          ),
+        );
+      }, () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CenterLayout(),
+          ),
+        );
+      }, () {}, () {}, () {}, () {}),
     );
   }
 }

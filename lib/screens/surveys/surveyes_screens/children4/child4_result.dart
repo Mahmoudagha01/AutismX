@@ -5,7 +5,6 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class ResultScreen extends StatefulWidget {
   final String questionnaireName;
   final int score1;
@@ -33,13 +32,9 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-  
-
   @override
   void initState() {
     super.initState();
-
-   
   }
 
   @override
@@ -137,9 +132,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
-                                    
-                                  },
+                                  onPressed: () {},
                                   icon: const Icon(
                                     Icons.save_outlined,
                                     color: ColorManager.blue,
