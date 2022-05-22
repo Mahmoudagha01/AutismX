@@ -70,7 +70,7 @@ class _FeedbackViewState extends State<FeedbackView> {
                             ),
                           ),
                           Row(
-                           mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Image.asset(
                                 "assets/images/angry.gif",
@@ -121,7 +121,11 @@ class _FeedbackViewState extends State<FeedbackView> {
                                   ParentDioHelper.createFeedback(
                                           feedback: feedbackController.text)
                                       .then((res) {
-                                    //TODO: feedback is sent
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                "Feedback sent successfully")));
+                                    Navigator.of(context).pop();
                                   }).catchError((err) {
                                     //error
                                   });
