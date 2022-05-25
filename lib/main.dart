@@ -12,7 +12,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'screens/onboarding/on_boarding_page.dart';
 
-
 void main() {
   DioHelper.init();
   Bloc.observer = MyBlocObserver();
@@ -26,24 +25,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   @override
-
-  Widget build(BuildContext context) {  
-    return  MultiProvider(
+  Widget build(BuildContext context) {
+    return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => SettingsModel()),
-        //Add Provider Listener to any change in edit_dialog
         ChangeNotifierProvider<DialogModel>(create: (context) => DialogModel()),
         ChangeNotifierProvider<HomeModel>(create: (context) => HomeModel()),
-      
-        //Add Provider Listener to any change in edit_dialog
-        
         ChangeNotifierProvider<UnlockedHomeProvider>(
             create: (context) => UnlockedHomeProvider()),
- BlocProvider(
+        BlocProvider(
           create: (context) => ProfileCubit(),
         ),
       ],
-    
       child: MaterialApp(
         title: 'Autism project',
         debugShowCheckedModeBanner: false,

@@ -44,13 +44,12 @@ class _CenterLayoutState extends State<CenterLayout> {
               prefix: Icons.search,
             ),
           ),
-          // i did the search bar the ugly way
-          // still we will modify it as we will make it actual search when we add the list of centers from API
+       
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  // here is the main container that will bd duplicated many times as the API tell us how many
+                  
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Container(
@@ -61,12 +60,12 @@ class _CenterLayoutState extends State<CenterLayout> {
                         boxShadow: [
                           BoxShadow(
                               offset: Offset(0, 0),
-                              // The alignment of the effect(x,y)
+                              
                               spreadRadius: 1,
-                              //Spread radius means how much it will spread
+                              
                               blurRadius: 5,
-                              //How big the blus will be
-                              color: Colors.grey //color of the effect.
+                             
+                              color: Colors.grey 
                               )
                         ],
                       ),
@@ -146,7 +145,7 @@ class _CenterLayoutState extends State<CenterLayout> {
                           const SizedBox(
                             height: 20,
                           ),
-                          //the information i leave it that way so when we apply the API we will know each one
+                         
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
@@ -185,7 +184,7 @@ class _CenterLayoutState extends State<CenterLayout> {
                           const SizedBox(
                             height: 20,
                           ),
-                          // the rating when we apply the stateManagement we will use we will save it in Share preference
+                          
                           SmoothStarRating(
                             rating: 0,
                             isReadOnly: false,

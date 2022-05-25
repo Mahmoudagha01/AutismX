@@ -1,13 +1,10 @@
+
 import 'package:autismx/screens/BNB/advice/social.dart';
-import 'package:autismx/screens/BNB/screens/appstates.dart';
-import 'package:autismx/screens/BNB/screens/screens_controller.dart';
-import 'package:autismx/screens/age/age_view.dart';
-import 'package:autismx/screens/common/common_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
-import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../age/age_view.dart';
 
 class Advices extends StatefulWidget {
   const Advices({Key key}) : super(key: key);
@@ -22,7 +19,7 @@ class _AdvicesState extends State<Advices> {
 
   Widget build(BuildContext context) {
     
-    Widget _Advice(int index,var list) {
+    Widget _Advice(int index) {
       return Container(
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         width: MediaQuery.of(context).size.width - 50,
@@ -44,14 +41,14 @@ class _AdvicesState extends State<Advices> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 image:
-                    DecorationImage(image: NetworkImage(list[index]["image"]))),
+                    DecorationImage(image: AssetImage("assets/images/Six.png",))),
           ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
+          const Padding(
+            padding: EdgeInsets.all(4.0),
             child: Text(
-              list[index]["advice"],
+              "involve him in group and charitable activities",
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                   overflow: TextOverflow.clip,
                   fontSize: 17,
                   color: ColorManager.greyFont),
@@ -176,23 +173,16 @@ class _AdvicesState extends State<Advices> {
                   fontWeight: FontWeight.bold),),
           ),
           Expanded(
-            child: BlocConsumer<AppCubit, AppStates>(
-                listener: (context, state) {},
-                builder: (context, state) {
-                  var list = AppCubit.get(context).AdvicesList;
-                  return ConditionalBuilder(
-                    condition: state is !GetAdvicesLoadingState,
-                    builder: (context) => ListView.builder(
+            child: ListView.builder(
                       scrollDirection: Axis.horizontal,
-                      itemCount: list.length,
+                      itemCount: 6,
                       itemBuilder: (context, index) {
-                        return _Advice(index,list);
+                        return _Advice(index);
                       },
-                    ),
-                    fallback: (context) =>
-                        const Center(child: CircularProgressIndicator()),
-                  );
-                }),
+                   
+                    
+                  
+                ),
           ),
         ]),
       ),
