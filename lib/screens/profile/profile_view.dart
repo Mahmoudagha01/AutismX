@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   TextEditingController _Adresscontroller = TextEditingController();
   TextEditingController _Childnamecontroller = TextEditingController();
   TextEditingController _Childagecontroller = TextEditingController();
-  TextEditingController _Gendercontroller = TextEditingController();
+  int childGender;
 
   Widget _Textformfield(
       {@required TextEditingController controller,
@@ -82,9 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             _Childagecontroller.text = _Childagecontroller.text.isEmpty
                 ? parent.childAge.toString()
                 : _Childagecontroller.text;
-            _Gendercontroller.text = _Gendercontroller.text.isEmpty
-                ? parent.childGender
-                : _Gendercontroller.text;
+            childGender = parent.childGender == "female" ? 1 : 0;
             return Column(
               children: [
                 CustomAppBar(context: context, scaffoldkey: Scaffoldkey),
@@ -235,16 +233,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               color: ColorManager.blueFont,
                             ),
                             keyboardType: TextInputType.number),
-                        _Textformfield(
-                            controller: _Gendercontroller,
-                            hintText: 'Enter Child Gender',
-                            lableText: 'Child Gender',
-                            prifixicon: const Icon(
-                              Icons.merge_type,
-                              size: 30,
-                              color: ColorManager.blueFont,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 8.0, top: 8.0, right: 8.0),
+                          child: DropdownButtonFormField<int>(
+                            items: const [
+                              DropdownMenuItem(
+                                child: Text("Male"),
+                                value: 0,
+                              ),
+                              DropdownMenuItem(
+                                child: Text("Female"),
+                                value: 1,
+                              ),
+                            ],
+                            value: childGender,
+                            onChanged: (val) {
+                              childGender = val;
+                            },
+                            validator: (value) {
+                              if (value != 0 && value != 1) {
+                                return 'You must complete this field';
+                              }
+                              return null;
+                            },
+                            decoration: const InputDecoration(
+                              labelText: "Child Gender",
+                              prefixIcon: Icon(
+                                Icons.merge_type,
+                                size: 30,
+                                color: ColorManager.blueFont,
+                              ),
+                              labelStyle: TextStyle(
+                                  fontSize: 25, color: Colors.blueAccent),
                             ),
-                            keyboardType: TextInputType.text),
+                          ),
+                        ),
+                        // _Textformfield(
+                        //     controller: _Gendercontroller,
+                        //     hintText: 'Enter Child Gender',
+                        //     lableText: 'Child Gender',
+                        //     prifixicon: const Icon(
+                        //       Icons.merge_type,
+                        //       size: 30,
+                        //       color: ColorManager.blueFont,
+                        //     ),
+                        //     keyboardType: TextInputType.text),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Container(
@@ -270,10 +304,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         childName: _Childnamecontroller.text,
                                         childAge:
                                             int.parse(_Childagecontroller.text),
-                                        childGender:
-                                            _Gendercontroller.text == "female"
-                                                ? 1
-                                                : 0,
+                                        childGender: childGender,
                                         childImageFile:
                                             ProfileCubit.get(context).file)
                                     .then((response) {
@@ -281,6 +312,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       Parent.fromJson(response.data["data"]);
                                   ProfileCubit.get(context)
                                       .emit(ProfileUpdateState(newParent));
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text(
+                                              "Profile updated successfully")));
+                                  Navigator.of(context).pop();
                                 }).catchError((err) {
                                   print(err);
                                 });
