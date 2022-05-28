@@ -42,7 +42,9 @@ class SingUpParentLayout extends StatelessWidget {
             ProfileCubit.get(context)
                 .emit(ProfileUpdateState(state.signupModel.data));
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => Screens()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const SignInParentLayout()));
           } else if (state is RegisterUploadImageState) {
             childImageController.text = state.imagePath;
           } else {

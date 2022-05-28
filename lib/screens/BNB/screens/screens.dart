@@ -2,11 +2,10 @@ import 'package:autismx/screens/BNB/activity/activity.dart';
 import 'package:autismx/screens/BNB/advice/advice_view.dart';
 import 'package:autismx/screens/BNB/home/home_view.dart';
 import 'package:autismx/screens/BNB/predict/predict.dart';
-
+import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 
 import 'package:flutter/material.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
-
 
 class Screens extends StatefulWidget {
   @override
@@ -27,6 +26,7 @@ class _ScreensState extends State<Screens> {
         selectedItemColor: ColorManager.blue,
         unselectedItemColor: ColorManager.greyFont,
         onTap: (index) {
+          AppCubit.get(context).changeBottomNavBar(index);
           setState(() {
             crrentindex = index;
           });
