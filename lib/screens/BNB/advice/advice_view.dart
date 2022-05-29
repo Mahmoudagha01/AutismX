@@ -17,12 +17,11 @@ class Advices extends StatefulWidget {
 }
 
 class _AdvicesState extends State<Advices> {
-
   GlobalKey<ScaffoldState> Scaffoldkey = GlobalKey<ScaffoldState>();
 
+  @override
   Widget build(BuildContext context) {
-    
-    Widget _Advice(int index,var list) {
+    Widget _Advice(int index, var list) {
       return Container(
         margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         width: MediaQuery.of(context).size.width - 50,
@@ -96,7 +95,8 @@ class _AdvicesState extends State<Advices> {
                 child: Column(children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,MaterialPageRoute(builder: (context)=>Age()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Age()));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
@@ -107,8 +107,7 @@ class _AdvicesState extends State<Advices> {
                             topRight: Radius.circular(15),
                           ),
                           image: DecorationImage(
-                              image:
-                                  AssetImage("assets/images/Detailed.png"))),
+                              image: AssetImage("assets/images/Detailed.png"))),
                     ),
                   ),
                   const Expanded(
@@ -139,19 +138,21 @@ class _AdvicesState extends State<Advices> {
                 child: Column(children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,MaterialPageRoute(builder: (context)=>Social()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Social()));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.16,
                       decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15),
-                          ),
-                          image: DecorationImage(
-                              image:
-                                  AssetImage("assets/images/social.png"),),),
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(15),
+                          topRight: Radius.circular(15),
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage("assets/images/social.png"),
+                        ),
+                      ),
                     ),
                   ),
                   const Expanded(
@@ -169,11 +170,13 @@ class _AdvicesState extends State<Advices> {
           ),
           const Padding(
             padding: EdgeInsets.only(top: 25),
-            child: Text('Some advices will help you',
+            child: Text(
+              'Some advices will help you',
               style: TextStyle(
                   fontSize: 22,
                   color: ColorManager.blue,
-                  fontWeight: FontWeight.bold),),
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           Expanded(
             child: BlocConsumer<AppCubit, AppStates>(
@@ -181,12 +184,12 @@ class _AdvicesState extends State<Advices> {
                 builder: (context, state) {
                   var list = AppCubit.get(context).AdvicesList;
                   return ConditionalBuilder(
-                    condition: state is !GetAdvicesLoadingState,
+                    condition: state is! GetAdvicesLoadingState,
                     builder: (context) => ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: list.length,
                       itemBuilder: (context, index) {
-                        return _Advice(index,list);
+                        return _Advice(index, list);
                       },
                     ),
                     fallback: (context) =>
