@@ -50,7 +50,7 @@ class SignInParentLayout extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'Sing In Now',
+                      'Sign In Now',
                       style: TextStyle(
                         color: ColorManager.blueFont,
                         fontSize: 20,
@@ -126,7 +126,7 @@ class SignInParentLayout extends StatelessWidget {
                                 password: passwordController.text);
                           }
                         },
-                        text: 'SING IN',
+                        text: 'SIGN IN',
                       ),
                       condition: state is! LoginLoadingState,
                       fallback: (context) =>

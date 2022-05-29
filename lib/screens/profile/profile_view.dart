@@ -136,7 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Positioned(
                                 bottom: 10,
                                 left:
-                                    MediaQuery.of(context).size.width / 2 - 60,
+                                    MediaQuery.of(context).size.width / 2.5,
                                 child: Text(
                                   parent.firstName,
                                   style: const TextStyle(

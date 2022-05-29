@@ -41,12 +41,11 @@ class GameController extends ChangeNotifier {
   void onTileTapped(Tile tile) {
     final canMove = puzzle.canMove(tile.position);
 
-    /// if the tile can be moved
     if (canMove) {
-      // move the tile or multiples tiles
+  
       final newPuzzle = puzzle.move(tile);
 
-      // check if the puzzle was solved
+      
       final solved = newPuzzle.isSolved();
       _state = state.copyWith(
         puzzle: newPuzzle,
@@ -60,20 +59,19 @@ class GameController extends ChangeNotifier {
       }
 
       if (state.sound) {
-        // play a sound
+   
         audioRepository.playMove();
       }
 
       if (solved) {
         _timer?.cancel();
 
-        // notify to the game view
+  
         _streamController.sink.add(null);
       }
     }
   }
 
-  /// shuffle the current puzzle
   void shuffle() {
     if (_timer != null) {
       time.value = 0;

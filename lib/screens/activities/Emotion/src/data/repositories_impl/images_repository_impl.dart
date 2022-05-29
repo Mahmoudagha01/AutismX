@@ -18,49 +18,45 @@ import '../../domain/repositories/images_repository.dart';
   const EmotionImage(
     name: 'Happy',
     assetPath: 'assets/images/Happy.png',
-    soundPath: 'assets/sounds/cat.mp3', gifPath: '',
+    soundPath: 'assets/sounds/happy.mp3', gifPath: 'assets/images/happy.gif',
   ),
     const EmotionImage(
     name: 'Sad',
     assetPath: 'assets/images/Sad.png',
-    soundPath: 'assets/sounds/mouse.mp3', gifPath: '',
+    soundPath: 'assets/sounds/sad.mp3', gifPath: 'assets/images/Sad_2.gif',
   ),
   const EmotionImage(
     name: 'Angry',
     assetPath: 'assets/images/Angry.png',
-    soundPath: 'assets/sounds/dog.mp3', gifPath: '',
+    soundPath: 'assets/sounds/Angry.mp3', gifPath: 'assets/images/Angry2.gif',
   ),
 const EmotionImage(
     name: 'Cry',
     assetPath: 'assets/images/Cry.png',
-    soundPath: 'assets/sounds/fox.mp3', gifPath: '',
+    soundPath: 'assets/sounds/crying.mp3', gifPath: 'assets/images/Cry_1.gif',
   ),
    const EmotionImage(
     name: 'Surprised',
     assetPath: 'assets/images/Surprised.png',
-    soundPath: 'assets/sounds/panda.mp3', gifPath: '',
+    soundPath: 'assets/sounds/surprised.mp3', gifPath: 'assets/images/Surprised.gif',
   ),
   const EmotionImage(
     name: 'Funny',
     assetPath: 'assets/images/Funny.png',
-    soundPath: 'assets/sounds/koala.mp3', gifPath: '',
+    soundPath: 'assets/sounds/funny.mp3', gifPath: 'assets/images/Funny_1.gif',
   ),
   const EmotionImage(
     name: 'Calm',
     assetPath: 'assets/images/Calim.png',
-    soundPath: 'assets/sounds/monkey.mp3', gifPath: '',
+    soundPath: 'assets/sounds/calm.mp3', gifPath: 'assets/images/Calim.gif',
   ),
 
   const EmotionImage(
     name: 'Frighten',
     assetPath: 'assets/images/Frighten.png',
-    soundPath: 'assets/sounds/panda.mp3', gifPath: '',
+    soundPath: 'assets/sounds/frightened.mp3', gifPath: 'assets/images/Frighten.gif',
   ),
- const EmotionImage(
-    name: 'Playful',
-    assetPath: 'assets/images/Playful.png',
-    soundPath: 'assets/sounds/panda.mp3', gifPath: '',
-  ),
+ 
 ];
 
 Future<Image> decodeAsset(ByteData bytes) async {

@@ -23,7 +23,6 @@ class SingUpParentLayout extends StatelessWidget {
   var childNameController = TextEditingController();
   var childAgeController = TextEditingController();
   var childImageController = TextEditingController();
-  var childGenderController = TextEditingController();
   var phoneController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -31,6 +30,7 @@ class SingUpParentLayout extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
   bool isPassword = true;
   bool checkbox = false;
+  int childGender = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -219,17 +219,37 @@ class SingUpParentLayout extends StatelessWidget {
                           const SizedBox(
                             height: 20,
                           ),
-                          defaultFormField(
-                            controller: childGenderController,
-                            type: TextInputType.text,
-                            validate: (String value) {
-                              if (value.isEmpty) {
+                          DropdownButtonFormField<int>(
+                            items: const [
+                              DropdownMenuItem(
+                                child: Text("Male"),
+                                value: 0,
+                              ),
+                              DropdownMenuItem(
+                                child: Text("Female"),
+                                value: 1,
+                              ),
+                            ],
+                            value: childGender,
+                            onChanged: (val) {
+                              childGender = val;
+                            },
+                            validator: (value) {
+                              if (value != 0 && value != 1) {
                                 return 'You must complete this field';
                               }
                               return null;
                             },
-                            label: 'Child Gender',
-                            prefix: Icons.merge_type,
+                            //borderRadius: BorderRadius.circular(20),
+                            decoration: InputDecoration(
+                              labelText: "Child Gender",
+                              prefixIcon: const Icon(
+                                Icons.merge_type,
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
                           ),
                           const SizedBox(
                             height: 10,
@@ -258,8 +278,7 @@ class SingUpParentLayout extends StatelessWidget {
                                     phone: phoneController.text,
                                     childAge:
                                         int.parse(childAgeController.text),
-                                    childGender:
-                                        int.parse(childGenderController.text),
+                                    childGender: childGender,
                                     childName: childNameController.text,
                                   );
                                   //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Screens()));
