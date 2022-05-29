@@ -20,38 +20,9 @@ class _CenterLayoutState extends State<CenterLayout> {
     "assets/images/center 2.png",
     "assets/images/center3.png",
   ];
-  GlobalKey<ScaffoldState> Scaffoldkey = GlobalKey<ScaffoldState>();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      key: Scaffoldkey,
-      body: Column(
-        children: [
-          SafeArea(
-              child: fullAppbar(context: context, scaffoldkey: Scaffoldkey)),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: defaultFormField(
-              controller: searchController,
-              type: TextInputType.text,
-              validate: (String value) {
-                if (value.isEmpty) {
-                  return 'search must not be empty';
-                }
-                return null;
-              },
-              label: 'Search',
-              prefix: Icons.search,
-            ),
-          ),
-       
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
+  Widget center(){
+    return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40,vertical: 10),
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.6,
                       width: MediaQuery.of(context).size.width - 100,
@@ -199,10 +170,37 @@ class _CenterLayoutState extends State<CenterLayout> {
                         ],
                       ),
                     ),
-                  ),
-                ],
-              ),
+                  );
+  }
+  GlobalKey<ScaffoldState> Scaffoldkey = GlobalKey<ScaffoldState>();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      key: Scaffoldkey,
+      body: Column(
+        children: [
+          SafeArea(
+              child: fullAppbar(context: context, scaffoldkey: Scaffoldkey)),
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: defaultFormField(
+              controller: searchController,
+              type: TextInputType.text,
+              validate: (String value) {
+                if (value.isEmpty) {
+                  return 'search must not be empty';
+                }
+                return null;
+              },
+              label: 'Search',
+              prefix: Icons.search,
             ),
+          ),
+       
+          Expanded(
+            child: ListView.builder(itemBuilder: (context, index){
+              return center();
+            })
           ),
         ],
       ),

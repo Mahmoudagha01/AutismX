@@ -2,7 +2,6 @@ import 'package:autismx/screens/BNB/advice/social.dart';
 import 'package:autismx/screens/BNB/screens/appstates.dart';
 import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/age/age_view.dart';
-import 'package:autismx/screens/common/common_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:conditional_builder/conditional_builder.dart';
@@ -139,7 +138,7 @@ class _AdvicesState extends State<Advices> {
                   InkWell(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Social()));
+                          MaterialPageRoute(builder: (context) => const Social()));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
