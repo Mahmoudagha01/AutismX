@@ -1,3 +1,4 @@
+import 'package:autismx/screens/common/profile_cubit.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:autismx/shared/network/dio/parent_helper.dart';
@@ -52,9 +53,9 @@ class _FeedbackViewState extends State<FeedbackView> {
                       padding: const EdgeInsets.only(top: 55),
                       child: Column(
                         children: [
-                          const Text(
-                            'Mohamed',
-                            style: TextStyle(
+                          Text(
+                            ProfileCubit.get(context).parentProfile.firstName,
+                            style: const TextStyle(
                                 fontSize: 25,
                                 color: ColorManager.blueFont,
                                 fontWeight: FontWeight.bold),
@@ -152,8 +153,8 @@ class _FeedbackViewState extends State<FeedbackView> {
                       child: CircleAvatar(
                         radius: 48,
                         backgroundColor: Colors.white,
-                        child: Image.asset(
-                          'assets/images/Profile.png',
+                        child: Image.network(
+                          ProfileCubit.get(context).parentProfile.childImage,
                           fit: BoxFit.cover,
                           width: 70,
                           height: 70,

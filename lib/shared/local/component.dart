@@ -1,3 +1,4 @@
+import 'package:autismx/screens/common/profile_cubit.dart';
 import 'package:autismx/screens/parent/sing_in/signin_view.dart';
 import 'package:autismx/shared/local/colors.dart';
 import 'package:autismx/shared/network/dio/profile_helper.dart';
@@ -152,6 +153,7 @@ Widget defaultFormField({
   IconData suffix,
   Function suffixPressed,
   bool isClickable = true,
+  Function onChange,
 }) =>
     TextFormField(
       controller: controller,
@@ -159,6 +161,7 @@ Widget defaultFormField({
       obscureText: isPassword,
       enabled: isClickable,
       validator: validate,
+      onChanged: onChange,
       decoration: InputDecoration(
         labelText: label,
         prefixIcon: Icon(
@@ -252,7 +255,7 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
             height: MediaQuery.of(context).size.height * 0.25,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image:  AssetImage("assets/images/drawer1.png"),
+                    image: AssetImage("assets/images/drawer1.png"),
                     fit: BoxFit.fill)),
 
             //color: Colors.red,
@@ -267,9 +270,9 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
                     child: CircleAvatar(
                       radius: 48,
                       backgroundColor: Colors.white,
-                      child: Image.asset(
-                        'assets/images/Profile.png',
-                        fit: BoxFit.cover,
+                      child: Image.network(
+                        ProfileCubit.get(context).parentProfile.childImage,
+                        fit: BoxFit.fill,
                         width: 70,
                         height: 70,
                       ),

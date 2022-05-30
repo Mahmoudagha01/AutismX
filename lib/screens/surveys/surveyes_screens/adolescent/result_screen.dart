@@ -5,6 +5,7 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../shared/network/dio/parent_helper.dart';
 
 class ResultScreen extends StatelessWidget {
   final String questionnaireName;
@@ -108,7 +109,18 @@ class ResultScreen extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    ParentDioHelper.postParentScore(
+                                            score: total,
+                                            advise: _getMax(),
+                                            childCase: _getinterpretation(),
+                                            date: formattedDate,
+                                            childAge: int.parse(age),
+                                            childGender:
+                                                gender == "female" ? 1 : 0)
+                                        .then((response) {})
+                                        .catchError((error) {});
+                                  },
                                   icon: const Icon(
                                     Icons.save_outlined,
                                     color: ColorManager.blue,
@@ -300,45 +312,36 @@ class ResultScreen extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               width: MediaQuery.of(context).size.width,
               height: 60.0,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: ColorManager.blue, 
-                  onPrimary: Colors.white, 
+                  primary: ColorManager.blue,
+                  onPrimary: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder:
-                       (context) =>CenterLayout())
-
-                    );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CenterLayout()));
                 },
                 child: const Text('Specialists Recommendations',
-                    style:  TextStyle(fontSize: 20.0)),
+                    style: TextStyle(fontSize: 20.0)),
               ),
             ),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               width: MediaQuery.of(context).size.width,
               height: 60.0,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  primary: ColorManager.blue, 
-                  onPrimary: Colors.white, 
+                  primary: ColorManager.blue,
+                  onPrimary: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder:
-                       (context) =>Screens())
-
-                    );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Screens()));
                 },
-                child: const Text('Go Home',
-                    style: TextStyle(fontSize: 20.0)),
+                child: const Text('Go Home', style: TextStyle(fontSize: 20.0)),
               ),
             )
           ],
