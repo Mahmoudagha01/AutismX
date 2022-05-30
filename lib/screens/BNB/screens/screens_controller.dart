@@ -9,7 +9,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../predict/predict.dart';
 
 class AppCubit extends Cubit<AppStates> {
-  AppCubit() : super(AppInitialState());
+  AppCubit() : super(AppInitialState()) {
+    getAdvices();
+    getCenters();
+  }
   static AppCubit get(context) => BlocProvider.of(context);
 
   final List screens = [

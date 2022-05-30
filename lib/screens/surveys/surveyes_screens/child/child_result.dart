@@ -5,6 +5,7 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../shared/network/dio/parent_helper.dart';
 
 class ResultScreen extends StatefulWidget {
   final String questionnaireName;
@@ -16,7 +17,6 @@ class ResultScreen extends StatefulWidget {
   ResultScreen({
     @required this.questionnaireName,
     this.score,
-    
     @required this.name,
     @required this.age,
     @required this.gender,
@@ -27,37 +27,34 @@ class ResultScreen extends StatefulWidget {
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-  
-
   @override
   void initState() {
     super.initState();
-
-   
   }
 
   @override
   Widget build(BuildContext context) {
-    int score =widget.score;
+    int score = widget.score;
     String _getinterpretation() {
       if (score <= 2) {
         return "The Score indicates low risk";
       } else if (score <= 7 && score >= 3) {
         return "The Score indicates Medium risk";
-      } else if (score >=8) {
+      } else if (score >= 8) {
         return "The Score indicates High risk";
       }
     }
+
     String _getadvice() {
       if (score <= 2) {
         return "if child is younger than 24 months, you should screen again after second birthday. No further action required unless surveillance indicates risk for ASD.";
       } else if (score <= 7 && score >= 3) {
         return "You Should to take your child to his or her doctor for a follow-up screenin.You can also seek early intervention services for your child";
-      } else if (score >=8) {
+      } else if (score >= 8) {
         return "You should to take your child to his or her doctor for a full evaluation.You Should also begin early intervention services for your child.";
       }
     }
-    
+
     var now = DateTime.now();
     var formatter = DateFormat('dd/MM/yyyy');
     String formattedDate = formatter.format(now);
@@ -101,7 +98,18 @@ class _ResultScreenState extends State<ResultScreen> {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    
+                                    ParentDioHelper.postParentScore(
+                                            score: score,
+                                            advise: _getadvice(),
+                                            childCase: _getinterpretation(),
+                                            date: formattedDate,
+                                            childAge: int.parse(widget.age),
+                                            childGender:
+                                                widget.gender == "female"
+                                                    ? 1
+                                                    : 0)
+                                        .then((response) {})
+                                        .catchError((error) {});
                                   },
                                   icon: const Icon(
                                     Icons.save_outlined,

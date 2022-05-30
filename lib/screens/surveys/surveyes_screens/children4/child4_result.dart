@@ -5,6 +5,8 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../shared/network/dio/parent_helper.dart';
+
 class ResultScreen extends StatefulWidget {
   final String questionnaireName;
   final int score1;
@@ -132,7 +134,20 @@ class _ResultScreenState extends State<ResultScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    ParentDioHelper.postParentScore(
+                                            score: total,
+                                            advise: _getMax(),
+                                            childCase: _getinterpretation(),
+                                            date: formattedDate,
+                                            childAge: int.parse(widget.age),
+                                            childGender:
+                                                widget.gender == "female"
+                                                    ? 1
+                                                    : 0)
+                                        .then((response) {})
+                                        .catchError((error) {});
+                                  },
                                   icon: const Icon(
                                     Icons.save_outlined,
                                     color: ColorManager.blue,

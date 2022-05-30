@@ -1,3 +1,4 @@
+import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/activities/AAC/providers/locked/dialog.dart';
 import 'package:autismx/screens/activities/AAC/providers/locked/home.dart';
 import 'package:autismx/screens/activities/AAC/providers/settings/settings.dart';
@@ -36,6 +37,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider(
           create: (context) => ProfileCubit(),
         ),
+        BlocProvider(create: (context) => AppCubit())
       ],
       child: MaterialApp(
         title: 'Autism project',
