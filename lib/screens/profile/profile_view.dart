@@ -1,4 +1,4 @@
-import 'package:autismx/screens/centers/center_view.dart';
+
 import 'package:autismx/screens/common/profile_cubit.dart';
 import 'package:autismx/screens/common/profile_states.dart';
 import 'package:autismx/shared/local/colors.dart';
@@ -85,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             childGender = parent.childGender == "female" ? 1 : 0;
             return Column(
               children: [
-                CustomAppBar(context: context, scaffoldkey: Scaffoldkey),
+                 CustombackAppBar(context, (){Navigator.pop(context);}),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
@@ -338,21 +338,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           },
         ),
       ),
-      endDrawer: myDrawer(context, () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ProfileScreen(),
-          ),
-        );
-      }, () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CenterLayout(),
-          ),
-        );
-      }, () {}, () {}, () {}, () {}),
+     
     );
   }
 }

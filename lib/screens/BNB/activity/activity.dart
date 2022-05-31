@@ -11,6 +11,8 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
 
+import '../../reports/reports_view.dart';
+
 class Activity extends StatefulWidget {
   const Activity({Key key}) : super(key: key);
 
@@ -122,7 +124,12 @@ class _ActivityState extends State<Activity> {
               ),
             );
           },
-          () {},
+          () {Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Reports(),
+                ),
+              );},
           () {
             Navigator.push(
               context,

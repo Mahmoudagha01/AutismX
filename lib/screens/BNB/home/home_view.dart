@@ -1,6 +1,7 @@
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';
+import 'package:autismx/screens/reports/reports_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -289,7 +290,12 @@ class _HomeState extends State<Home> {
                 ),
               );
             },
-            () {},
+            () {Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Reports(),
+                ),
+              );},
             () {
               Navigator.push(
                 context,

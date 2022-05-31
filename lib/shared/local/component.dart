@@ -258,7 +258,6 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
                     image: AssetImage("assets/images/drawer1.png"),
                     fit: BoxFit.fill)),
 
-            //color: Colors.red,
             child: Stack(
               children: [
                 Positioned(
@@ -269,12 +268,9 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
                     backgroundColor: Colors.grey.withOpacity(0.2),
                     child: CircleAvatar(
                       radius: 48,
-                      backgroundColor: Colors.white,
-                      child: Image.network(
+                     backgroundImage:  NetworkImage(
                         ProfileCubit.get(context).parentProfile.childImage,
-                        fit: BoxFit.fill,
-                        width: 70,
-                        height: 70,
+                       
                       ),
                     ),
                   ),
