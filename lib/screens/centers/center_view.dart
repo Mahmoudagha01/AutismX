@@ -20,12 +20,8 @@ var searchQuery = "";
 
 class _CenterLayoutState extends State<CenterLayout> {
   PageController pc;
-  final List<String> _images = [
-    "assets/images/center 1.png",
-    "assets/images/center 2.png",
-    "assets/images/center3.png",
-  ];
   Widget center(Map<String, dynamic> center) {
+    final List<dynamic> _images = center["images"];
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       child: Container(
@@ -50,48 +46,59 @@ class _CenterLayoutState extends State<CenterLayout> {
                 children: [
                   Container(
                       width: MediaQuery.of(context).size.width - 60,
-                      child: Image.network(
-                        center["center_photo"],
-                        fit: BoxFit.fill,
-                      )),
-                  CarouselSlider.builder(
-                    itemCount: _images.length,
-                    options: CarouselOptions(
-                        initialPage: 0,
-                        autoPlay: true,
-                        height: MediaQuery.of(context).size.height * 0.3),
-                    itemBuilder: (context, index) => Container(
-                      margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15)),
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: Image.asset(
-                              _images[index],
-                              fit: BoxFit.fill,
+                      decoration: const BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/drawer1.png"),
+                              fit: BoxFit.fill))),
+                  if (_images.isNotEmpty)
+                    CarouselSlider.builder(
+                      itemCount: _images.length,
+                      options: CarouselOptions(
+                          initialPage: 0,
+                          autoPlay: true,
+                          height: MediaQuery.of(context).size.height * 0.3),
+                      itemBuilder: (context, index) => Container(
+                        margin: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15)),
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              child: Image.network(
+                                _images[index]["image"],
+                                fit: BoxFit.fill,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
                   Positioned(
                     bottom: 10,
                     left: 45,
-                    child: Container(
-                      width: 80,
-                      height: 80,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Image.asset(
-                        "assets/images/c3.png",
+                    child: CircleAvatar(
+                      radius: 40,
+                      backgroundColor: Colors.grey.withOpacity(0.2),
+                      child: CircleAvatar(
+                        radius: 48,
+                        backgroundImage: NetworkImage(
+                          center["center_photo"],
+                        ),
                       ),
                     ),
+                    // child: Container(
+                    //     width: 80,
+                    //     height: 80,
+                    //     decoration: const BoxDecoration(
+                    //       shape: BoxShape.circle,
+                    //       color: Colors.white,
+                    //     ),
+                    //     child: Image.network(
+                    //       center["center_photo"],
+                    //       fit: BoxFit.fill,
+                    //     )),
                   ),
                 ],
               ),
