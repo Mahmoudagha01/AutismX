@@ -205,9 +205,9 @@ class _CenterLayoutState extends State<CenterLayout> {
               listener: (context, state) {},
               builder: (context, state) {
                 List<dynamic> centers = searchQuery == ""
-                    ? AppCubit.get(context).CentersList
+                    ? AppCubit.get(context).centersList
                     : AppCubit.get(context)
-                        .CentersList
+                        .centersList
                         .where((c) =>
                             c["address"]
                                 .toString()

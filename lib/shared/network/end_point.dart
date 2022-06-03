@@ -12,6 +12,7 @@ const allCategories = 'parents/categories';
 const departementOfCategory = 'parents/departments';
 
 const allCenters = 'parents/centers';
+const highCenters = 'parents/high_centers';
 const centerByAddress = 'parents/center/address';
 
 const showParentScore = 'parents/my_scores';

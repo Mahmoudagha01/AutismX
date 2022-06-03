@@ -12,6 +12,7 @@ class AppCubit extends Cubit<AppStates> {
   AppCubit() : super(AppInitialState()) {
     getAdvices();
     getCenters();
+    getReports();
   }
   static AppCubit get(context) => BlocProvider.of(context);
 
@@ -21,15 +22,17 @@ class AppCubit extends Cubit<AppStates> {
     const Advices(),
     const Activity()
   ];
-  List<dynamic> AdvicesList = [];
-  List<dynamic> CentersList = [];
+  List<dynamic> advicesList = [];
+  List<dynamic> centersList = [];
+  List<dynamic> highCentersList = [];
+  Map<String, dynamic> reportData = {};
 
   void getAdvices() {
     emit(GetAdvicesLoadingState());
 
     ParentDioHelper.showAdvices().then((value) {
       print(value.data["data"]);
-      AdvicesList = value.data["data"];
+      advicesList = value.data["data"];
 
       ///print(business[0]['title']);
       emit(GetAdvicesSuccessState());
@@ -40,18 +43,33 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   void getCenters() {
-    emit(GetAdvicesLoadingState());
+    emit(GetCentersLoadingState());
 
-    CentersDioHelper.showAllCenters().then((value) {
-      print(value.data["data"]);
-      CentersList = value.data["data"];
+    Future.wait([
+      CentersDioHelper.showAllCenters(),
+      CentersDioHelper.getHighCenters()
+    ]).then((value) {
+      final allCenters = value[0];
+      final highCenters = value[1];
 
-      ///print(business[0]['title']);
-
+      centersList = allCenters.data["data"];
+      highCentersList = highCenters.data["data"];
       emit(GetCentersSuccessState());
     }).catchError((error) {
       print(error.toString());
       emit(GetCentersErrorState(error.toString()));
+    });
+  }
+
+  void getReports() {
+    emit(GetReportsLoadingState());
+
+    ParentDioHelper.showParentScore().then((value) {
+      reportData = value.data["data"][0];
+      emit(GetReportsLoadingState());
+    }).catchError((error) {
+      print(error.toString());
+      emit(GetReportsErrorState(error.toString()));
     });
   }
 

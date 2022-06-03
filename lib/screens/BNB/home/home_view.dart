@@ -1,3 +1,5 @@
+import 'package:autismx/screens/BNB/screens/appstates.dart';
+import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/feedback/feedback_view.dart';
 import 'package:autismx/screens/profile/profile_view.dart';
@@ -6,6 +8,7 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -157,154 +160,162 @@ class _HomeState extends State<Home> {
               ),
               Expanded(
                 flex: 2,
-                child: ListView.builder(
-                    itemCount: 5,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.all(10),
-                        width: MediaQuery.of(context).size.width * 0.75,
-                        height: MediaQuery.of(context).size.height * 0.60,
-                        clipBehavior: Clip.antiAliasWithSaveLayer,
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.4),
-                              offset: const Offset(6, 6),
-                              blurRadius: 8,
+                child: BlocConsumer<AppCubit, AppStates>(
+                  listener: (context, state) {},
+                  builder: (context, state) {
+                    final centers = AppCubit.get(context).highCentersList;
+                    return ListView.builder(
+                        itemCount: centers.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.all(10),
+                            width: MediaQuery.of(context).size.width * 0.75,
+                            height: MediaQuery.of(context).size.height * 0.60,
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  offset: const Offset(6, 6),
+                                  blurRadius: 8,
+                                ),
+                                BoxShadow(
+                                  color: Colors.blue.withOpacity(0.3),
+                                  offset: const Offset(4, 4),
+                                  blurRadius: 5,
+                                ),
+                              ],
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
                             ),
-                            BoxShadow(
-                              color: Colors.blue.withOpacity(0.3),
-                              offset: const Offset(4, 4),
-                              blurRadius: 5,
-                            ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Stack(
-                          children: [
-                            Image.asset(
-                              'assets/images/center.jpg',
-                              width: MediaQuery.of(context).size.width * 0.75,
-                              height: MediaQuery.of(context).size.height * 0.5,
-                              fit: BoxFit.cover,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 20),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: const [
-                                            Icon(
-                                              Icons.location_on_outlined,
-                                              color: Colors.black,
-                                              size: 45,
-                                            ),
-                                            Text(
-                                              'Cairo',
-                                              style: TextStyle(
-                                                  fontSize: 22,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.black),
-                                            )
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        Row(
-                                          children: const [
-                                            Icon(
-                                              Icons.call_outlined,
-                                              color: Colors.black,
-                                              size: 45,
-                                            ),
-                                            Text(
-                                              '01027637638',
-                                              style: TextStyle(
-                                                  fontSize: 22,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.black),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Column(
+                            child: Stack(
+                              children: [
+                                Image.asset(
+                                  'assets/images/center.jpg',
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.75,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.5,
+                                  fit: BoxFit.cover,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(top: 20.0),
-                                        child: Image.asset(
-                                          'assets/images/c1.png',
-                                          width: 55,
-                                          height: 85,
-                                          fit: BoxFit.fill,
+                                        padding: const EdgeInsets.only(top: 20),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.location_on_outlined,
+                                                  color: Colors.black,
+                                                  size: 45,
+                                                ),
+                                                Text(
+                                                  centers[index]["center"]
+                                                      ["address"],
+                                                  style: const TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black),
+                                                )
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Row(
+                                              children: [
+                                                const Icon(
+                                                  Icons.call_outlined,
+                                                  color: Colors.black,
+                                                  size: 45,
+                                                ),
+                                                Text(
+                                                  centers[index]["center"]
+                                                      ["phone"],
+                                                  style: const TextStyle(
+                                                      fontSize: 22,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black),
+                                                )
+                                              ],
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      const Text(
-                                        'Autismc',
-                                        style: TextStyle(
-                                            fontSize: 25,
-                                            fontWeight: FontWeight.bold,
-                                            color: ColorManager.blueFont),
-                                      )
+                                      Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                top: 20.0),
+                                            child: Image.network(
+                                              centers[index]["center"]
+                                                  ["center_photo"],
+                                              height: 65,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
+                                          Text(
+                                            centers[index]["center"]
+                                                ["centerName"],
+                                            style: const TextStyle(
+                                                fontSize: 25,
+                                                fontWeight: FontWeight.bold,
+                                                color: ColorManager.blueFont),
+                                          )
+                                        ],
+                                      ),
                                     ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      );
-                    }),
+                          );
+                        });
+                  },
+                ),
               ),
             ],
           ),
         ),
-        endDrawer: myDrawer(
+        endDrawer: myDrawer(context, () {
+          Navigator.push(
             context,
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProfileScreen(),
-                ),
-              );
-            },
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CenterLayout(),
-                ),
-              );
-            },
-            () {Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Reports(),
-                ),
-              );},
-            () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FeedbackView(),
-                ),
-              );
-            },
-            () {},
-            () {}));
+            MaterialPageRoute(
+              builder: (context) => ProfileScreen(),
+            ),
+          );
+        }, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CenterLayout(),
+            ),
+          );
+        }, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Reports(),
+            ),
+          );
+        }, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FeedbackView(),
+            ),
+          );
+        }, () {}, () {}));
   }
 }

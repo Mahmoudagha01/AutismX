@@ -11,6 +11,14 @@ class CentersDioHelper {
     );
   }
 
+  static Future<Response<Map<String, dynamic>>> getHighCenters() async {
+    return await DioHelper.get(url: endpoints.highCenters).then(
+      (response) {
+        return response;
+      },
+    );
+  }
+
   static Future<Response<Map<String, dynamic>>> findCenterByAddress(
       String address) async {
     return await DioHelper.postData(

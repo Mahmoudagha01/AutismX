@@ -12,6 +12,16 @@ class GetCentersLoadingState extends AppStates {}
 
 class GetCentersSuccessState extends AppStates {}
 
+class GetReportsLoadingState extends AppStates {}
+
+class GetReportsSuccessState extends AppStates {}
+
+class GetReportsErrorState extends AppStates {
+  final String error;
+
+  GetReportsErrorState(this.error);
+}
+
 class GetCentersErrorState extends AppStates {
   final String error;
 
