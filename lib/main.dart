@@ -12,7 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'screens/onboarding/on_boarding_page.dart';
-
+  
 void main() {
   DioHelper.init();
   Bloc.observer = MyBlocObserver();

@@ -67,6 +67,7 @@ dependencies:
   flip_card: ^0.4.4
   audioplayers: ^0.17.4
   confetti: ^0.6.0
+  share_plus: ^2.0.0
 
   
 

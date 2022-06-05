@@ -137,8 +137,10 @@ class _AdvicesState extends State<Advices> {
                 child: Column(children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const Social()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Social()));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width,
@@ -181,7 +183,7 @@ class _AdvicesState extends State<Advices> {
             child: BlocConsumer<AppCubit, AppStates>(
                 listener: (context, state) {},
                 builder: (context, state) {
-                  var list = AppCubit.get(context).AdvicesList;
+                  var list = AppCubit.get(context).advicesList;
                   return ConditionalBuilder(
                     condition: state is! GetAdvicesLoadingState,
                     builder: (context) => ListView.builder(
