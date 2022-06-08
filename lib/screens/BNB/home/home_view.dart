@@ -9,6 +9,7 @@ import 'package:autismx/shared/local/component.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -170,7 +171,7 @@ class _HomeState extends State<Home> {
                         itemBuilder: (context, index) {
                           return Container(
                             margin: const EdgeInsets.all(10),
-                            width: MediaQuery.of(context).size.width * 0.75,
+                            width: MediaQuery.of(context).size.width * 0.9,
                             height: MediaQuery.of(context).size.height * 0.60,
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
@@ -194,89 +195,121 @@ class _HomeState extends State<Home> {
                                 Image.asset(
                                   'assets/images/center.jpg',
                                   width:
-                                      MediaQuery.of(context).size.width * 0.75,
+                                      MediaQuery.of(context).size.width * 0.6,
                                   height:
                                       MediaQuery.of(context).size.height * 0.5,
                                   fit: BoxFit.cover,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 20),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                const Icon(
-                                                  Icons.location_on_outlined,
-                                                  color: Colors.black,
-                                                  size: 45,
-                                                ),
-                                                Text(
-                                                  centers[index]["center"]
-                                                      ["address"],
-                                                  style: const TextStyle(
-                                                      fontSize: 22,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.black),
-                                                )
-                                              ],
-                                            ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            Row(
-                                              children: [
-                                                const Icon(
-                                                  Icons.call_outlined,
-                                                  color: Colors.black,
-                                                  size: 45,
-                                                ),
-                                                Text(
-                                                  centers[index]["center"]
-                                                      ["phone"],
-                                                  style: const TextStyle(
-                                                      fontSize: 22,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.black),
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Column(
+                                Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(
-                                                top: 20.0),
-                                            child: Image.network(
-                                              centers[index]["center"]
-                                                  ["center_photo"],
-                                              height: 65,
-                                              fit: BoxFit.fill,
+                                            padding:
+                                                const EdgeInsets.only(top: 20),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons
+                                                          .location_on_outlined,
+                                                      color: Colors.black,
+                                                      size: 40,
+                                                    ),
+                                                    FittedBox(
+                                                      fit: BoxFit.contain,
+                                                      child: Text(
+                                                        centers[index]["center"]
+                                                            ["address"],
+                                                        style: const TextStyle(
+                                                            fontSize: 22,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            color:
+                                                                Colors.black),
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  height: 25,
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    const Icon(
+                                                      Icons.call_outlined,
+                                                      color: Colors.black,
+                                                      size: 40,
+                                                    ),
+                                                    Text(
+                                                      centers[index]["center"]
+                                                          ["phone"],
+                                                      style: const TextStyle(
+                                                          fontSize: 20,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black),
+                                                    )
+                                                  ],
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                          Text(
-                                            centers[index]["center"]
-                                                ["centerName"],
-                                            style: const TextStyle(
-                                                fontSize: 25,
-                                                fontWeight: FontWeight.bold,
-                                                color: ColorManager.blueFont),
-                                          )
+                                          Expanded(
+                                            child: Column(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 10.0, bottom: 5),
+                                                  child: CircleAvatar(
+                                                    radius: 40,
+                                                    foregroundImage:
+                                                        NetworkImage(
+                                                      centers[index]["center"]
+                                                          ["center_photo"],
+                                                    ),
+                                                  ),
+                                                ),
+                                                FittedBox(
+                                                  child: Text(
+                                                    centers[index]["center"]
+                                                        ["centerName"],
+                                                    overflow: TextOverflow.fade,
+                                                    maxLines: 1,
+                                                    style: const TextStyle(
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: ColorManager
+                                                            .blueFont),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    SmoothStarRating(
+                                      rating: 0,
+                                      isReadOnly: false,
+                                      size: 30,
+                                      filledIconData: Icons.star,
+                                      halfFilledIconData: Icons.star_half,
+                                      defaultIconData: Icons.star_border,
+                                      starCount: 5,
+                                      allowHalfRating: true,
+                                      spacing: 2.0,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
