@@ -8,6 +8,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class Reports extends StatelessWidget {
   const Reports({Key key}) : super(key: key);
 
+  Widget noData() {
+    return Center(child: Text("No Reports"));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,11 +36,14 @@ class Reports extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 final reportData = AppCubit.get(context).reportData;
-                if (reportData == null) {
-                  return Container();
+                if (reportData == null || reportData.isEmpty) {
+                  return noData();
                 }
                 print(reportData);
                 final List<dynamic> scores = reportData["scores"];
+                if (scores == null || scores.isEmpty) {
+                  return noData();
+                }
                 return ListView.separated(
                     itemCount: scores.length,
                     itemBuilder: (context, index) {

@@ -27,6 +27,13 @@ class AppCubit extends Cubit<AppStates> {
   List<dynamic> highCentersList = [];
   Map<String, dynamic> reportData = {};
 
+  void clearData() {
+    advicesList.clear();
+    centersList.clear();
+    highCentersList.clear();
+    reportData.clear();
+  }
+
   void getAdvices() {
     emit(GetAdvicesLoadingState());
 
