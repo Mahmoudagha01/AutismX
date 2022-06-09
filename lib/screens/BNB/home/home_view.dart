@@ -299,7 +299,9 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     SmoothStarRating(
-                                      rating: 0,
+                                      rating:
+                                          (centers[index]["validation"] as int)
+                                              .toDouble(),
                                       isReadOnly: false,
                                       size: 30,
                                       filledIconData: Icons.star,
