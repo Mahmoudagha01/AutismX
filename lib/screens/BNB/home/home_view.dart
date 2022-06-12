@@ -209,7 +209,8 @@ class _HomeState extends State<Home> {
                                             MainAxisAlignment.spaceAround,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.only(top: 20),
+                                            padding:
+                                                const EdgeInsets.only(top: 20),
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -217,12 +218,12 @@ class _HomeState extends State<Home> {
                                                 Row(
                                                   children: [
                                                     const Icon(
-                                                      Icons.location_on_outlined,
+                                                      Icons
+                                                          .location_on_outlined,
                                                       color: Colors.black,
                                                       size: 40,
                                                     ),
                                                     FittedBox(
-                                                      
                                                       fit: BoxFit.contain,
                                                       child: Text(
                                                         centers[index]["center"]
@@ -231,7 +232,8 @@ class _HomeState extends State<Home> {
                                                             fontSize: 22,
                                                             fontWeight:
                                                                 FontWeight.bold,
-                                                            color: Colors.black),
+                                                            color:
+                                                                Colors.black),
                                                       ),
                                                     )
                                                   ],
@@ -264,47 +266,51 @@ class _HomeState extends State<Home> {
                                             child: Column(
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsets.only(
-                                                      top: 10.0,bottom: 5),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 10.0, bottom: 5),
                                                   child: CircleAvatar(
                                                     radius: 40,
-                                                    foregroundImage:NetworkImage(
+                                                    foregroundImage:
+                                                        NetworkImage(
                                                       centers[index]["center"]
                                                           ["center_photo"],
-                                                     
-                                                    ), 
-                                                    
+                                                    ),
                                                   ),
                                                 ),
                                                 FittedBox(
                                                   child: Text(
                                                     centers[index]["center"]
-                                                        ["centerName"],overflow: TextOverflow.fade,maxLines: 1,
+                                                        ["centerName"],
+                                                    overflow: TextOverflow.fade,
+                                                    maxLines: 1,
                                                     style: const TextStyle(
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.bold,
-                                                        color: ColorManager.blueFont),
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: ColorManager
+                                                            .blueFont),
                                                   ),
                                                 ),
-                                                
                                               ],
                                             ),
                                           ),
-                                          
                                         ],
                                       ),
                                     ),
                                     SmoothStarRating(
-              rating: 0,
-              isReadOnly: false,
-              size: 30,
-              filledIconData: Icons.star,
-              halfFilledIconData: Icons.star_half,
-              defaultIconData: Icons.star_border,
-              starCount: 5,
-              allowHalfRating: true,
-              spacing: 2.0,
-            ),
+                                      rating:
+                                          (centers[index]["validation"] as int)
+                                              .toDouble(),
+                                      isReadOnly: false,
+                                      size: 30,
+                                      filledIconData: Icons.star,
+                                      halfFilledIconData: Icons.star_half,
+                                      defaultIconData: Icons.star_border,
+                                      starCount: 5,
+                                      allowHalfRating: true,
+                                      spacing: 2.0,
+                                    ),
                                   ],
                                 ),
                               ],

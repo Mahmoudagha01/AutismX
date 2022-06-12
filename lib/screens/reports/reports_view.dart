@@ -4,9 +4,14 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Reports extends StatelessWidget {
   const Reports({Key key}) : super(key: key);
+
+  Widget noData() {
+    return Center(child: Text("No Reports"));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +37,14 @@ class Reports extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 final reportData = AppCubit.get(context).reportData;
-                if (reportData == null) {
-                  return Container();
+                if (reportData == null || reportData.isEmpty) {
+                  return noData();
                 }
                 print(reportData);
                 final List<dynamic> scores = reportData["scores"];
+                if (scores == null || scores.isEmpty) {
+                  return noData();
+                }
                 return ListView.separated(
                     itemCount: scores.length,
                     itemBuilder: (context, index) {
@@ -61,18 +69,21 @@ class Reports extends StatelessWidget {
                                           fontSize: 23,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Container(
-                                      child: Row(
-                                        children: [
-                                          IconButton(
-                                            onPressed: () {},
-                                            icon: const Icon(
-                                              Icons.share_outlined,
-                                              color: ColorManager.blue,
-                                            ),
+                                    Row(
+                                      children: [
+                                        IconButton(
+                                          onPressed: () {
+                                            Share.share(
+                                              'Name: ${reportData["child_name"]}\nDate: ${scores[index]["date"]}\nAge: ${scores[index]["age"]}\nGender: ${scores[index]["gender"] == 1 ? "Female" : "Male"}\nScore: ${scores[index]["score"]}\nCase: ${scores[index]["case"]}\nAdvice: ${scores[index]["advise"]}',
+                                              subject: "AutismX Report",
+                                            );
+                                          },
+                                          icon: const Icon(
+                                            Icons.share_outlined,
+                                            color: ColorManager.blue,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                   ],
                                 ),

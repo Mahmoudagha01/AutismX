@@ -1,3 +1,4 @@
+import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/common/profile_cubit.dart';
 import 'package:autismx/screens/parent/sing_in/signin_view.dart';
 import 'package:autismx/shared/local/colors.dart';
@@ -257,7 +258,6 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
                 image: DecorationImage(
                     image: AssetImage("assets/images/drawer1.png"),
                     fit: BoxFit.fill)),
-
             child: Stack(
               children: [
                 Positioned(
@@ -268,9 +268,8 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
                     backgroundColor: Colors.grey.withOpacity(0.2),
                     child: CircleAvatar(
                       radius: 48,
-                     backgroundImage:  NetworkImage(
+                      backgroundImage: NetworkImage(
                         ProfileCubit.get(context).parentProfile.childImage,
-                       
                       ),
                     ),
                   ),
@@ -356,6 +355,7 @@ Widget myDrawer(BuildContext context, Function tab1, Function tab2,
           ListTile(
             onTap: () {
               ProfileDioHelper.logout().then((response) {
+                AppCubit.get(context).clearData();
                 Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
