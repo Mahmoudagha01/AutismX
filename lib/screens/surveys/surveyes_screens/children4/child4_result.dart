@@ -4,7 +4,7 @@ import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import 'package:share_plus/share_plus.dart';
 import '../../../../shared/network/dio/parent_helper.dart';
 
 class ResultScreen extends StatefulWidget {
@@ -127,7 +127,12 @@ class _ResultScreenState extends State<ResultScreen> {
                             child: Row(
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Share.share(
+                                      'Name: ${widget.name} \nDate: $formattedDate\nAge: ${widget.age}\nGender: ${widget.gender == 1 ? "Female" : "Male"}\nScore: $widget.total \nCase: ${_getinterpretation()} \nAdvice: ${_getMax()}',
+                                      subject: "AutismX Report",
+                                    );
+                                  },
                                   icon: const Icon(
                                     Icons.share_outlined,
                                     color: ColorManager.blue,
@@ -145,7 +150,12 @@ class _ResultScreenState extends State<ResultScreen> {
                                                 widget.gender == "female"
                                                     ? 1
                                                     : 0)
-                                        .then((response) {})
+                                        .then((response) {
+                                           ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                "Report Saved successfully")));
+                                        })
                                         .catchError((error) {});
                                   },
                                   icon: const Icon(

@@ -1,9 +1,11 @@
 import 'dart:math';
 import 'package:autismx/screens/BNB/screens/screens.dart';
+import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../shared/network/dio/parent_helper.dart';
 
@@ -43,11 +45,10 @@ class ResultScreen extends StatelessWidget {
         return "Your Score indicates significant Autistic traits (Autism)";
       }
     }
-
+    
     String _getMax() {
       int indexOfMaximum =
           scores.indexOf([score1, score2, score3, score4, score5].reduce(max));
-      //return indexOfMinimum.toString();
       switch (indexOfMaximum) {
         case 0:
           return "You have a problem with your social skills, you can work on improving it from the social skills section in the activities of the application";
@@ -67,7 +68,7 @@ class ResultScreen extends StatelessWidget {
         default:
       }
     }
-
+ final reportData = AppCubit.get(context).reportData;
     var now = new DateTime.now();
     var formatter = new DateFormat('dd/MM/yyyy');
     String formattedDate = formatter.format(now);
@@ -102,7 +103,12 @@ class ResultScreen extends StatelessWidget {
                             child: Row(
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Share.share(
+                                              'Name: $name\nDate: $formattedDate\nAge: $age\nGender: ${gender == 1 ? "Female" : "Male"}\nScore: $total \nCase: ${_getinterpretation()} \nAdvice: ${_getMax()}',
+                                              subject: "AutismX Report",
+                                            );
+                                  },
                                   icon: const Icon(
                                     Icons.share_outlined,
                                     color: ColorManager.blue,
@@ -118,7 +124,12 @@ class ResultScreen extends StatelessWidget {
                                             childAge: int.parse(age),
                                             childGender:
                                                 gender == "female" ? 1 : 0)
-                                        .then((response) {})
+                                        .then((response) {
+                                          ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                "Report Saved successfully")));
+                                        })
                                         .catchError((error) {});
                                   },
                                   icon: const Icon(

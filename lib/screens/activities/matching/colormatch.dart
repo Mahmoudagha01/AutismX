@@ -95,17 +95,17 @@ class _ColorMatchState extends State<ColorMatch> {
                             margin: const EdgeInsets.all(8),
                             child: Draggable<ItemModel>(
                               data: item,
-                              childWhenDragging: Container(
+                              childWhenDragging: SizedBox(
                                 width: 60,
                                 height: 50,
                                 child: Image.asset(item.img),
                               ),
-                              feedback: Container(
+                              feedback: SizedBox(
                                 width: 70,
                                 height: 60,
                                 child: Image.asset(item.img),
                               ),
-                              child: Container(
+                              child: SizedBox(
                                 width: 90,
                                 height: 80,
                                 child: Image.asset(item.img),
@@ -125,7 +125,6 @@ class _ColorMatchState extends State<ColorMatch> {
                               });
                               score += 10;
                               item.accepting = false;
-
                               player.play('true.mp3');
                             } else {
                               setState(() {

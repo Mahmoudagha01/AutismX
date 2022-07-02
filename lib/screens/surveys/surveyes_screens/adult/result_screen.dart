@@ -6,6 +6,7 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/network/dio/parent_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ResultScreen extends StatelessWidget {
   final String questionnaireName;
@@ -102,7 +103,12 @@ class ResultScreen extends StatelessWidget {
                             child: Row(
                               children: [
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                     Share.share(
+                                              'Name: $name\nDate: $formattedDate\nAge: $age\nGender: ${gender == 1 ? "Female" : "Male"}\nScore: $total \nCase: ${_getinterpretation()} \nAdvice: ${_getMax()}',
+                                              subject: "AutismX Report",
+                                            );
+                                  },
                                   icon: const Icon(
                                     Icons.share_outlined,
                                     color: ColorManager.blue,
@@ -118,7 +124,12 @@ class ResultScreen extends StatelessWidget {
                                             childAge: int.parse(age),
                                             childGender:
                                                 gender == "female" ? 1 : 0)
-                                        .then((response) {})
+                                        .then((response) {
+                                           ScaffoldMessenger.of(context).showSnackBar(
+                                        const SnackBar(
+                                            content: Text(
+                                                "Report Saved successfully")));
+                                        })
                                         .catchError((error) {});
                                   },
                                   icon: const Icon(

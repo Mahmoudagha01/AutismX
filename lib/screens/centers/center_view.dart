@@ -25,7 +25,7 @@ class _CenterLayoutState extends State<CenterLayout> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.65,
+        height: MediaQuery.of(context).size.height * 0.6,
         width: MediaQuery.of(context).size.width - 100,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -77,12 +77,12 @@ class _CenterLayoutState extends State<CenterLayout> {
                     ),
                   Positioned(
                     bottom: 10,
-                    left: 45,
+                    left: 58,
                     child: CircleAvatar(
-                      radius: 40,
+                      radius: 35,
                       backgroundColor: Colors.grey.withOpacity(0.2),
                       child: CircleAvatar(
-                        radius: 48,
+                        radius: 35,
                         backgroundImage: NetworkImage(
                           center["center_photo"],
                         ),

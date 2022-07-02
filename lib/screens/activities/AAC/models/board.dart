@@ -9,14 +9,8 @@ class Board {
   String locale;
 
   Board(
-      {this.name,
-      this.author,
-      this.email,
-      this.format,
-      this.tiles,
-      this.caption,
-      this.isPublic,
-      this.locale});
+      {this.name,this.author,this.email,this.format,
+      this.tiles,this.caption,this.isPublic,this.locale});
 
   Board.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -37,7 +31,7 @@ class Board {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
-    data['author'] =author;
+    data['author'] = author;
     data['email'] = email;
     data['format'] = format;
     if (tiles != null) {

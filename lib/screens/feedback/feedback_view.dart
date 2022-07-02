@@ -151,11 +151,8 @@ class _FeedbackViewState extends State<FeedbackView> {
                       child: CircleAvatar(
                         radius: 48,
                         backgroundColor: Colors.white,
-                        child: Image.network(
+                        backgroundImage: NetworkImage(
                           ProfileCubit.get(context).parentProfile.childImage,
-                          fit: BoxFit.cover,
-                          width: 70,
-                          height: 70,
                         ),
                       ),
                     ),

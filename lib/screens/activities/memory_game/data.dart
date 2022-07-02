@@ -50,7 +50,7 @@ List getSourceArray(
 }
 
 List<bool> getInitialItemState(Level level) {
-  List<bool> initialItemState = new List<bool>();
+  List<bool> initialItemState = <bool>[];
   if (level == Level.Hard) {
     for (int i = 0; i < 18; i++) {
       initialItemState.add(true);
@@ -69,7 +69,7 @@ List<bool> getInitialItemState(Level level) {
 
 List<GlobalKey<FlipCardState>> getCardStateKeys(Level level) {
   List<GlobalKey<FlipCardState>> cardStateKeys =
-      new List<GlobalKey<FlipCardState>>();
+      <GlobalKey<FlipCardState>>[];
   if (level == Level.Hard) {
     for (int i = 0; i < 18; i++) {
       cardStateKeys.add(GlobalKey<FlipCardState>());

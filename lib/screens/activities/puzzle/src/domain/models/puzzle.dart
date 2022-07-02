@@ -188,8 +188,6 @@ class Puzzle extends Equatable {
 
   bool _isSolvable(List<int> values) {
     final n = math.sqrt(values.length);
-
-    /// inversions
     int inversions = 0;
     int y = 1;
     int emptyPositionY = 1;

@@ -48,7 +48,6 @@ class _AdolescentCommunicationState extends State<AdolescentCommunication> {
       if (questionnaire == null) {
         return false;
       }
-
       questionnaires.add(questionnaire);
     }
 
@@ -58,12 +57,7 @@ class _AdolescentCommunicationState extends State<AdolescentCommunication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text(
-      //     'Questionnaires',
-      //   ),
-      // ),
-      body: FutureBuilder(
+        body: FutureBuilder(
         future: loadAllQuestionnairesFuture,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData && snapshot.data == true) {

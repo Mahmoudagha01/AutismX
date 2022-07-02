@@ -66,7 +66,6 @@ class FolderModel {
   String name;
   String nameKey;
   Author author;
-
   bool isPublic;
   bool hidden;
   List<TileModel> subItems;
