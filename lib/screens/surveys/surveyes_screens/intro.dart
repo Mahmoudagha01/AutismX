@@ -33,10 +33,13 @@ class _IntroState extends State<Intro> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustombackAppBar(context,() {
-              Navigator.pop(context);
-            },),
-             const SizedBox(
+              CustombackAppBar(
+                context,
+                () {
+                  Navigator.pop(context);
+                },
+              ),
+              const SizedBox(
                 height: 50,
               ),
               Row(
@@ -55,13 +58,14 @@ class _IntroState extends State<Intro> {
                 height: 10,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: defaultFormField(
                     controller: nameController,
                     type: TextInputType.text,
                     validate: (String value) {
                       if (value.isEmpty) {
-                        return 'Nmae must not be empty';
+                        return 'Name must not be empty';
                       }
                       return null;
                     },
@@ -69,7 +73,8 @@ class _IntroState extends State<Intro> {
                     prefix: Icons.person_outline),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: defaultFormField(
                     controller: ageController,
                     type: TextInputType.number,
@@ -139,7 +144,7 @@ class _IntroState extends State<Intro> {
                         ),
                       ),
                     );
-                  }  else if (int.parse(ageController.text) >= 12 &&
+                  } else if (int.parse(ageController.text) >= 12 &&
                       int.parse(ageController.text) <= 15) {
                     Navigator.push(
                       context,
@@ -159,15 +164,14 @@ class _IntroState extends State<Intro> {
                         builder: (context) => ChildCategory(
                           name: nameController.text,
                           age: ageController.text,
-                          gender: _selectedgender, 
+                          gender: _selectedgender,
                         ),
                       ),
                     );
-                  }else{}
+                  } else {}
                 },
                 text: "Submit".toUpperCase(),
               ),
-       
             ],
           ),
         ),

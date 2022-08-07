@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:autismx/shared/local/component.dart';
+import 'package:autismx/shared/network/dio/ai_helper.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/material.dart';
@@ -65,15 +66,7 @@ class _UploadImageState extends State<UploadImage> {
     setState(() {
       uploadStatus = true;
     });
-    var response = await http.post(
-        Uri.parse(
-          //حط هنا لينك السيرفر
-          '',
-        ),
-        body: {
-          "image": _image.readAsBytes().toString(),
-          "name": _image.path.split('/').last.toString()
-        });
+    var response = await AIDioHelper.uploadImage(imageFile: _image);
     print(response.statusCode);
     if (response.statusCode != 200) {
       showAlertDialog(
@@ -81,49 +74,54 @@ class _UploadImageState extends State<UploadImage> {
           title: "Error Uploading!",
           content: "Server Side Error.");
     } else {
-      var result = jsonDecode(response.body);
+      var result = response.data;
       print(result);
       showAlertDialog(
-          context: context, title: "Image Sent!", content: result['message']);
+          context: context, title: "Image Sent!", content: result['result']);
     }
     setState(() {
       uploadStatus = false;
     });
   }
-@override
+
+  @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
- showAlertDialog(
-          context: context,
-          title: "Note!",
-          content: "Child age should be between 2 to 14 years old",
-         );
-     });
-   
+      showAlertDialog(
+        context: context,
+        title: "Note!",
+        content: "Child age should be between 2 to 14 years old",
+      );
+    });
+
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      
       body: Center(
         child: Column(
           children: [
-            CustombackAppBar(context, () {
+            CustombackAppBar(
+              context,
+              () {
                 Navigator.pop(context);
-              },),
+              },
+            ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 // Display Progress Indicator if uploadStatus is true
                 child: uploadStatus
                     ? Center(
-                      child: Container(
-                          height: 100,
-                          width: 100,
-                          child: Image.asset("assets/images/puzzleloading.gif")),
-                    )
+                        child: Container(
+                            height: 100,
+                            width: 100,
+                            child:
+                                Image.asset("assets/images/puzzleloading.gif")),
+                      )
                     : Padding(
                         padding: const EdgeInsets.only(top: 40),
                         child: Column(
@@ -185,9 +183,9 @@ class _UploadImageState extends State<UploadImage> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
-                                  children:const [
+                                  children: const [
                                     Icon(Icons.file_upload),
-                                     Text(
+                                    Text(
                                       'Upload Image',
                                     ),
                                   ],

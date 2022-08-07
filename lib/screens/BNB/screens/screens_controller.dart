@@ -70,10 +70,10 @@ class AppCubit extends Cubit<AppStates> {
 
   void getReports() {
     emit(GetReportsLoadingState());
-
+    reportData.clear();
     ParentDioHelper.showParentScore().then((value) {
       reportData = value.data["data"][0];
-      emit(GetReportsLoadingState());
+      emit(GetReportsSuccessState());
     }).catchError((error) {
       print(error.toString());
       emit(GetReportsErrorState(error.toString()));

@@ -12,6 +12,17 @@ class ParentDioHelper {
     );
   }
 
+  static Future<Response<Map<String, dynamic>>> deleteParentScore(
+      int id) async {
+    return await DioHelper.get(
+      url: endpoints.deleteParentScore + "/$id",
+    ).then(
+      (response) {
+        return response;
+      },
+    );
+  }
+
   static Future<Response<Map<String, dynamic>>> showAdvices() async {
     return await DioHelper.get(url: endpoints.showAdvices).then(
       (response) {

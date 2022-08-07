@@ -16,3 +16,4 @@ const highCenters = 'parents/high_centers';
 const centerByAddress = 'parents/center/address';
 
 const showParentScore = 'parents/my_scores';
+const deleteParentScore = 'parents/delete_score';

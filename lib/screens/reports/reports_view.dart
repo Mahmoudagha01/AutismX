@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:autismx/screens/BNB/screens/appstates.dart';
 import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:autismx/shared/local/component.dart';
+import 'package:autismx/shared/network/dio/ai_helper.dart';
+import 'package:autismx/shared/network/dio/parent_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:share_plus/share_plus.dart';
@@ -80,6 +84,26 @@ class Reports extends StatelessWidget {
                                           },
                                           icon: const Icon(
                                             Icons.share_outlined,
+                                            color: ColorManager.blue,
+                                          ),
+                                        ),
+                                        IconButton(
+                                          onPressed: () {
+                                            //for testing
+                                            // AIDioHelper.uploadImage(
+                                            //     imageFile: File(
+                                            //             "./assets/image/after.png")
+                                            //         .absolute);
+
+                                            ParentDioHelper.deleteParentScore(
+                                                    reportData["id"])
+                                                .then((value) {
+                                              AppCubit.get(context)
+                                                  .getReports();
+                                            }).catchError((err) {});
+                                          },
+                                          icon: const Icon(
+                                            Icons.delete_outline,
                                             color: ColorManager.blue,
                                           ),
                                         ),
