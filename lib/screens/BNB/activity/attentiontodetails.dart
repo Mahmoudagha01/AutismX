@@ -22,7 +22,7 @@ class AttentionToDetails extends StatefulWidget {
 
 class _AttentionToDetailsState extends State<AttentionToDetails> {
   final List<String> images = [
-    'assets/images/Puzzle.png',
+    'assets/images/puzzle.png',
     'assets/images/Matching.png',
   ];
 
