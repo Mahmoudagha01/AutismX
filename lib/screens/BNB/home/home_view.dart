@@ -110,22 +110,24 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width - 50,
                       child: Column(
                         children: [
-                          const Spacer(),
+                        
                           SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.25,
                             child: Image.asset(
                               images[index]["image"],
                               fit: BoxFit.fill,
                             ),
                           ),
                           const Spacer(),
-                          Text(
-                            images[index]["title"],
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                fontSize: 21, color: ColorManager.greyFont),
+                          FittedBox(
+                            child: Text(
+                              images[index]["title"],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  fontSize: 21, color: ColorManager.greyFont),
+                            ),
                           ),
-                          const Spacer()
+                    
                         ],
                       ),
                     ),
@@ -159,6 +161,9 @@ class _HomeState extends State<Home> {
                   color: ColorManager.blueFont,
                 ),
               ),
+               const SizedBox(
+                height: 15,
+              ),
               Expanded(
                 flex: 2,
                 child: BlocConsumer<AppCubit, AppStates>(
@@ -170,9 +175,9 @@ class _HomeState extends State<Home> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Container(
-                            margin: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
                             width: MediaQuery.of(context).size.width * 0.9,
-                            height: MediaQuery.of(context).size.height * 0.60,
+                           
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
                               boxShadow: [
@@ -202,101 +207,98 @@ class _HomeState extends State<Home> {
                                 ),
                                 Column(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsets.only(top: 20),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    const Icon(
-                                                      Icons
-                                                          .location_on_outlined,
-                                                      color: Colors.black,
-                                                      size: 40,
-                                                    ),
-                                                    FittedBox(
-                                                      fit: BoxFit.contain,
-                                                      child: Text(
-                                                        centers[index]["center"]
-                                                            ["address"],
-                                                        style: const TextStyle(
-                                                            fontSize: 22,
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            color:
-                                                                Colors.black),
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                                const SizedBox(
-                                                  height: 25,
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    const Icon(
-                                                      Icons.call_outlined,
-                                                      color: Colors.black,
-                                                      size: 40,
-                                                    ),
-                                                    Text(
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(top: 20),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  const Icon(
+                                                    Icons
+                                                        .location_on_outlined,
+                                                    color: Colors.black,
+                                                    size: 40,
+                                                  ),
+                                                  FittedBox(
+                                                    fit: BoxFit.contain,
+                                                    child: Text(
                                                       centers[index]["center"]
-                                                          ["phone"],
+                                                          ["address"],
                                                       style: const TextStyle(
-                                                          fontSize: 20,
+                                                          fontSize: 22,
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          color: Colors.black),
-                                                    )
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Column(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 10.0, bottom: 5),
-                                                  child: CircleAvatar(
-                                                    radius: 40,
-                                                    foregroundImage:
-                                                        NetworkImage(
-                                                      centers[index]["center"]
-                                                          ["center_photo"],
+                                                          color:
+                                                              Colors.black),
                                                     ),
+                                                  )
+                                                ],
+                                              ),
+                                              const SizedBox(
+                                                height: 20,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  const Icon(
+                                                    Icons.call_outlined,
+                                                    color: Colors.black,
+                                                    size: 40,
                                                   ),
-                                                ),
-                                                FittedBox(
-                                                  child: Text(
+                                                  Text(
                                                     centers[index]["center"]
-                                                        ["centerName"],
-                                                    overflow: TextOverflow.fade,
-                                                    maxLines: 1,
+                                                        ["phone"],
                                                     style: const TextStyle(
                                                         fontSize: 20,
                                                         fontWeight:
                                                             FontWeight.bold,
-                                                        color: ColorManager
-                                                            .blueFont),
+                                                        color: Colors.black),
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Column(
+                                            children: [
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.only(
+                                                        top: 10.0, bottom: 5),
+                                                child: CircleAvatar(
+                                                  radius: 40,
+                                                  foregroundImage:
+                                                      NetworkImage(
+                                                    centers[index]["center"]
+                                                        ["center_photo"],
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                              FittedBox(
+                                                child: Text(
+                                                  centers[index]["center"]
+                                                      ["centerName"],
+                                                  overflow: TextOverflow.fade,
+                                                  maxLines: 1,
+                                                  style: const TextStyle(
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: ColorManager
+                                                          .blueFont),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                     SmoothStarRating(
                                       rating:

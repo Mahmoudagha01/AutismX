@@ -7,6 +7,10 @@ import 'package:autismx/shared/local/component.dart';
 import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../centers/center_view.dart';
+import '../../feedback/feedback_view.dart';
+import '../../profile/profile_view.dart';
+import '../../reports/reports_view.dart';
 
 class Advices extends StatefulWidget {
   const Advices({Key key}) : super(key: key);
@@ -37,7 +41,7 @@ class _AdvicesState extends State<Advices> {
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.23,
             width: MediaQuery.of(context).size.width - 50,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -46,13 +50,15 @@ class _AdvicesState extends State<Advices> {
           ),
           Padding(
             padding: const EdgeInsets.all(4.0),
-            child: Text(
-              list[index]["advice"],
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  overflow: TextOverflow.clip,
-                  fontSize: 17,
-                  color: ColorManager.greyFont),
+            child: FittedBox(
+              child: Text(
+                list[index]["advice"],
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    overflow: TextOverflow.clip,
+                    fontSize: 17,
+                    color: ColorManager.greyFont),
+              ),
             ),
           )
         ]),
@@ -200,7 +206,35 @@ class _AdvicesState extends State<Advices> {
           ),
         ]),
       ),
-      endDrawer: myDrawer(context, () {}, () {}, () {}, () {}, () {}, () {}),
+       endDrawer: myDrawer(context, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProfileScreen(),
+            ),
+          );
+        }, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CenterLayout(),
+            ),
+          );
+        }, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Reports(),
+            ),
+          );
+        }, () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FeedbackView(),
+            ),
+          );
+        }, () {}, () {}),
     );
   }
 }

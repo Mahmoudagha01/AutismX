@@ -6,7 +6,6 @@ import 'package:autismx/screens/surveys/surveyes_screens/intro.dart';
 import 'package:autismx/shared/local/colors.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
-
 import '../../reports/reports_view.dart';
 
 class Predict extends StatefulWidget {
@@ -34,7 +33,7 @@ class _PredictState extends State<Predict> {
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.27,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
@@ -81,7 +80,7 @@ class _PredictState extends State<Predict> {
                 },
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.27,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
