@@ -8,11 +8,6 @@ import 'package:url_strategy/url_strategy.dart';
 import '../../activities/puzzle/src/inject_dependencies.dart';
 
 
-
-
-
-
-
 class AttentionToDetails extends StatefulWidget {
   const AttentionToDetails({Key key}) : super(key: key);
 

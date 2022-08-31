@@ -10,7 +10,7 @@ class AIDioHelper {
   }) async {
     //TODO change url
     return await DioHelper.postData(
-        url: "https://c5f5-156-201-67-186.eu.ngrok.io/upload_image",
+        url: "https://f305-41-33-235-109.eu.ngrok.io/upload_image",
         data: FormData.fromMap({
           "file": await MultipartFile.fromFile(imageFile.path,
               filename: imageFile.path.split('/').last)

@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
 
+import '../../services/sqldb.dart';
+
 class ResultScreen extends StatelessWidget {
   final String questionnaireName;
 
@@ -33,6 +35,7 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+     SqlDb sqldb = SqlDb();
     List scores = [score1, score2, score3, score4, score5];
     int total = score1 + score2 + score3 + score4 + score5;
     String _getinterpretation() {
@@ -69,8 +72,8 @@ class ResultScreen extends StatelessWidget {
       }
     }
 
-    var now = new DateTime.now();
-    var formatter = new DateFormat('dd/MM/yyyy');
+    var now = DateTime.now();
+    var formatter = DateFormat('dd/MM/yyyy');
     String formattedDate = formatter.format(now);
     return Scaffold(
       appBar: AppBar(
@@ -115,16 +118,12 @@ class ResultScreen extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
-                                    ParentDioHelper.postParentScore(
-                                            score: total,
-                                            advise: _getMax(),
-                                            childCase: _getinterpretation(),
-                                            date: formattedDate,
-                                            childAge: int.parse(age),
-                                            childGender:
-                                                gender == "female" ? 1 : 0)
-                                        .then((response) {
+                                  onPressed: () async {
+                                    int response = await sqldb.insertData('''
+                                     INSERT INTO "report" ("name","date", "age", "gender", "score", "case", "advice") 
+                                     VALUES ("$name" ,"$formattedDate" ,"$age","$gender","$total","${_getinterpretation()}","${_getMax()}")
+
+                                       ''').then((response) {
                                            ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
                                             content: Text(

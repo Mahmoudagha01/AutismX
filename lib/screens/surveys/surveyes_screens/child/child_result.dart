@@ -1,4 +1,4 @@
-import 'dart:math';
+
 import 'package:autismx/screens/BNB/screens/screens.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../../../../shared/network/dio/parent_helper.dart';
+import '../../services/sqldb.dart';
 
 class ResultScreen extends StatefulWidget {
   final String questionnaireName;
@@ -55,7 +55,7 @@ class _ResultScreenState extends State<ResultScreen> {
         return "You should to take your child to his or her doctor for a full evaluation.You Should also begin early intervention services for your child.";
       }
     }
-
+ SqlDb sqldb = SqlDb();
     var now = DateTime.now();
     var formatter = DateFormat('dd/MM/yyyy');
     String formattedDate = formatter.format(now);
@@ -103,19 +103,12 @@ class _ResultScreenState extends State<ResultScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
-                                    print("saved");
-                                    ParentDioHelper.postParentScore(
-                                            score: score,
-                                            advise: _getadvice(),
-                                            childCase: _getinterpretation(),
-                                            date: formattedDate,
-                                            childAge: int.parse(widget.age),
-                                            childGender:
-                                                widget.gender == "female"
-                                                    ? 1
-                                                    : 0)
-                                        .then((response) {
+                                 onPressed: () async {
+                                    int response = await sqldb.insertData('''
+                                     INSERT INTO "report" ("name","date", "age", "gender", "score", "case", "advice") 
+                                     VALUES ("${widget.name}" ,"$formattedDate" ,"${widget.age}","${widget.gender}","$score","${_getinterpretation()}","${_getadvice()}")
+
+                                       ''').then((response) {
                                            ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
                                             content: Text(

@@ -1,13 +1,11 @@
 import 'dart:math';
 import 'package:autismx/screens/BNB/screens/screens.dart';
-import 'package:autismx/screens/BNB/screens/screens_controller.dart';
 import 'package:autismx/screens/centers/center_view.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
+import 'package:autismx/screens/surveys/services/sqldb.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
-
-import '../../../../shared/network/dio/parent_helper.dart';
 
 class ResultScreen extends StatelessWidget {
   final String questionnaireName;
@@ -34,6 +32,7 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SqlDb sqldb = SqlDb();
     List scores = [score1, score2, score3, score4, score5];
     int total = score1 + score2 + score3 + score4 + score5;
     String _getinterpretation() {
@@ -45,7 +44,7 @@ class ResultScreen extends StatelessWidget {
         return "Your Score indicates significant Autistic traits (Autism)";
       }
     }
-    
+
     String _getMax() {
       int indexOfMaximum =
           scores.indexOf([score1, score2, score3, score4, score5].reduce(max));
@@ -68,9 +67,10 @@ class ResultScreen extends StatelessWidget {
         default:
       }
     }
- final reportData = AppCubit.get(context).reportData;
-    var now = new DateTime.now();
-    var formatter = new DateFormat('dd/MM/yyyy');
+
+
+    var now =  DateTime.now();
+    var formatter = DateFormat('dd/MM/yyyy');
     String formattedDate = formatter.format(now);
     return Scaffold(
       appBar: AppBar(
@@ -105,9 +105,9 @@ class ResultScreen extends StatelessWidget {
                                 IconButton(
                                   onPressed: () {
                                     Share.share(
-                                              'Name: $name\nDate: $formattedDate\nAge: $age\nGender: ${gender == 1 ? "Female" : "Male"}\nScore: $total \nCase: ${_getinterpretation()} \nAdvice: ${_getMax()}',
-                                              subject: "AutismX Report",
-                                            );
+                                      'Name: $name\nDate: $formattedDate\nAge: $age\nGender: ${gender == 1 ? "Female" : "Male"}\nScore: $total \nCase: ${_getinterpretation()} \nAdvice: ${_getMax()}',
+                                      subject: "AutismX Report",
+                                    );
                                   },
                                   icon: const Icon(
                                     Icons.share_outlined,
@@ -115,22 +115,17 @@ class ResultScreen extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
-                                    ParentDioHelper.postParentScore(
-                                            score: total,
-                                            advise: _getMax(),
-                                            childCase: _getinterpretation(),
-                                            date: formattedDate,
-                                            childAge: int.parse(age),
-                                            childGender:
-                                                gender == "female" ? 1 : 0)
-                                        .then((response) {
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                "Report Saved successfully")));
-                                        })
-                                        .catchError((error) {});
+                                  onPressed: () async {
+                                    int response = await sqldb.insertData('''
+                                     INSERT INTO "report" ("name","date", "age", "gender", "score", "case", "advice") 
+                                     VALUES ("$name" ,"$formattedDate" ,"$age","$gender","$total","${_getinterpretation()}","${_getMax()}")
+
+                                       ''').then((response) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(const SnackBar(
+                                              content: Text(
+                                                  "Report Saved successfully")));
+                                    }).catchError((error) {});
                                   },
                                   icon: const Icon(
                                     Icons.save_outlined,

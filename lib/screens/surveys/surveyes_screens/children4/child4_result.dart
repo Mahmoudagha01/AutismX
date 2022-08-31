@@ -5,7 +5,7 @@ import 'package:autismx/screens/surveys/configs/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
-import '../../../../shared/network/dio/parent_helper.dart';
+import '../../services/sqldb.dart';
 
 class ResultScreen extends StatefulWidget {
   final String questionnaireName;
@@ -41,6 +41,7 @@ class _ResultScreenState extends State<ResultScreen> {
 
   @override
   Widget build(BuildContext context) {
+     SqlDb sqldb = SqlDb();
     List scores = [
       widget.score1,
       widget.score2,
@@ -139,18 +140,12 @@ class _ResultScreenState extends State<ResultScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {
-                                    ParentDioHelper.postParentScore(
-                                            score: total,
-                                            advise: _getMax(),
-                                            childCase: _getinterpretation(),
-                                            date: formattedDate,
-                                            childAge: int.parse(widget.age),
-                                            childGender:
-                                                widget.gender == "female"
-                                                    ? 1
-                                                    : 0)
-                                        .then((response) {
+                                  onPressed: () async {
+                                    int response = await sqldb.insertData('''
+                                     INSERT INTO "report" ("name","date", "age", "gender", "score", "case", "advice") 
+                                     VALUES ("${widget.name}" ,"$formattedDate" ,"${widget.age}","${widget.gender}","$total","${_getinterpretation()}","${_getMax()}")
+
+                                       ''').then((response) {
                                            ScaffoldMessenger.of(context).showSnackBar(
                                         const SnackBar(
                                             content: Text(
