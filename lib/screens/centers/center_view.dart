@@ -25,7 +25,7 @@ class _CenterLayoutState extends State<CenterLayout> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.6,
+        height: MediaQuery.of(context).size.height * 0.62,
         width: MediaQuery.of(context).size.width - 100,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -154,16 +154,19 @@ class _CenterLayoutState extends State<CenterLayout> {
             const SizedBox(
               height: 20,
             ),
-            SmoothStarRating(
-              rating: 0,
-              isReadOnly: false,
-              size: 30,
-              filledIconData: Icons.star,
-              halfFilledIconData: Icons.star_half,
-              defaultIconData: Icons.star_border,
-              starCount: 5,
-              allowHalfRating: true,
-              spacing: 2.0,
+            SizedBox(
+               height: 20,
+              child: SmoothStarRating(
+                rating: 0,
+                isReadOnly: false,
+                size: 30,
+                filledIconData: Icons.star,
+                halfFilledIconData: Icons.star_half,
+                defaultIconData: Icons.star_border,
+                starCount: 5,
+                allowHalfRating: true,
+                spacing: 2.0,
+              ),
             ),
           ],
         ),
