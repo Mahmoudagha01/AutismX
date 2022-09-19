@@ -82,25 +82,28 @@ class _FeedbackViewState extends State<FeedbackView> {
                                       3),
                             ],
                           ),
-                          Container(
-                            margin: const EdgeInsets.all(12),
-                            child: TextFormField(
-                              controller: feedbackController,
-                              maxLines: 8,
-                              showCursor: true,
-                              keyboardType: TextInputType.text,
-                              decoration: InputDecoration(
-                                fillColor: Colors.grey.shade100,
-                                filled: true,
-                                hintText: 'Type Your Message...',
-                                hintStyle: const TextStyle(
-                                  fontSize: 19,
-                                  color: ColorManager.greyFont,
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide(
-                                    color: Colors.grey.shade300,
+                          Expanded(
+                            child: Container(
+                             
+                              margin: const EdgeInsets.all(12),
+                              child: TextFormField(
+                                controller: feedbackController,
+                                maxLines: 8,
+                                showCursor: true,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                  fillColor: Colors.grey.shade100,
+                                  filled: true,
+                                  hintText: 'Type Your Message...',
+                                  hintStyle: const TextStyle(
+                                    fontSize: 19,
+                                    color: ColorManager.greyFont,
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey.shade300,
+                                    ),
                                   ),
                                 ),
                               ),
