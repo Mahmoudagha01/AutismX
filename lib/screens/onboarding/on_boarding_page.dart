@@ -65,8 +65,8 @@ class OnBoardingPage extends StatelessWidget {
             next: const Text('Next',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: ColorManager.blueFont),),
             dotsDecorator: getDotDecoration(),
             onChange: (index) => print('Page $index selected'),
-            globalBackgroundColor: Theme.of(context).primaryColor,
-            skipFlex: 0,
+            globalBackgroundColor: Colors.white,
+           
             nextFlex: 0,
             // isProgressTap: false,
             // isProgress: false,
@@ -102,7 +102,7 @@ class OnBoardingPage extends StatelessWidget {
         ),
         bodyTextStyle:
             const TextStyle(fontSize: 20, color:  Color.fromARGB(255, 122, 122, 122)),
-        descriptionPadding: const EdgeInsets.all(16).copyWith(bottom: 0),
+       // descriptionPadding: const EdgeInsets.all(16).copyWith(bottom: 0),
         imagePadding: const EdgeInsets.all(24),
         pageColor: Colors.white,
       );

@@ -22,16 +22,9 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
+   
       
-      color: isPrimary ? ColorManager.blue: Colors.white,
-      shape: isPrimary
-          ? null
-          : RoundedRectangleBorder(
-              side: BorderSide(
-                color: ColorManager.greyFont,
-              ),
-            ),
       child: Text(
         buttonLabel,
         style: isPrimary
