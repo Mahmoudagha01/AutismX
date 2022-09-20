@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Expanded(
-                flex: 3,
+                flex: 4,
                 child: CarouselSlider.builder(
                   itemCount: images.length,
                   options: CarouselOptions(
@@ -110,7 +110,6 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width - 50,
                       child: Column(
                         children: [
-                        
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.25,
                             child: Image.asset(
@@ -127,7 +126,6 @@ class _HomeState extends State<Home> {
                                   fontSize: 21, color: ColorManager.greyFont),
                             ),
                           ),
-                    
                         ],
                       ),
                     ),
@@ -161,11 +159,11 @@ class _HomeState extends State<Home> {
                   color: ColorManager.blueFont,
                 ),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Expanded(
-                flex: 2,
+                flex: 3,
                 child: BlocConsumer<AppCubit, AppStates>(
                   listener: (context, state) {},
                   builder: (context, state) {
@@ -175,9 +173,8 @@ class _HomeState extends State<Home> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 10),
+                            margin: const EdgeInsets.symmetric(horizontal: 10),
                             width: MediaQuery.of(context).size.width * 0.9,
-                           
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
                               boxShadow: [
@@ -221,8 +218,7 @@ class _HomeState extends State<Home> {
                                               Row(
                                                 children: [
                                                   const Icon(
-                                                    Icons
-                                                        .location_on_outlined,
+                                                    Icons.location_on_outlined,
                                                     color: Colors.black,
                                                     size: 40,
                                                   ),
@@ -235,8 +231,7 @@ class _HomeState extends State<Home> {
                                                           fontSize: 22,
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          color:
-                                                              Colors.black),
+                                                          color: Colors.black),
                                                     ),
                                                   )
                                                 ],
@@ -269,13 +264,11 @@ class _HomeState extends State<Home> {
                                           child: Column(
                                             children: [
                                               Padding(
-                                                padding:
-                                                    const EdgeInsets.only(
-                                                        top: 10.0, bottom: 5),
+                                                padding: const EdgeInsets.only(
+                                                    top: 10.0, bottom: 5),
                                                 child: CircleAvatar(
                                                   radius: 40,
-                                                  foregroundImage:
-                                                      NetworkImage(
+                                                  foregroundImage: NetworkImage(
                                                     centers[index]["center"]
                                                         ["center_photo"],
                                                   ),
@@ -322,6 +315,9 @@ class _HomeState extends State<Home> {
                   },
                 ),
               ),
+              SizedBox(
+                height: 5,
+              )
             ],
           ),
         ),

@@ -1,4 +1,3 @@
-
 import 'package:autismx/screens/activities/learn_time/FinalTest.dart';
 import 'package:autismx/shared/local/component.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,9 @@ class Day extends StatefulWidget {
   @override
   State<Day> createState() => _DayState();
 }
+
 enum ttsstate { playing, stopped }
+
 class _DayState extends State<Day> {
   FlutterTts flutterTts;
   ttsstate TtsState = ttsstate.stopped;
@@ -66,16 +67,17 @@ class _DayState extends State<Day> {
     super.dispose();
     flutterTts.stop();
   }
+
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-   
       body: Column(
         children: [
-          CustombackAppBar(context, (){Navigator.pop(context);}),
+          CustombackAppBar(context, () {
+            Navigator.pop(context);
+          }),
           Expanded(
-           
-            child: Container(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -87,83 +89,78 @@ class _DayState extends State<Day> {
                         fontWeight: FontWeight.bold),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only( top: 22),
+                    padding: const EdgeInsets.only(top: 22),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.38,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image:  AssetImage(
+                          image: AssetImage(
                             'assets/images/7day.gif',
                           ),
                         ),
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(bottom: 35, top: 30)),
-                 
-                              InkWell(
-            onTap: (){
-                _Speak('It\'s Seven in the Morning');
-            },
-            child: Container(
-              width: 200,
-              height: 90,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: const [
-                  BoxShadow(
-                      offset: Offset(1, 0),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      color: Colors.grey)
-                ],
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Text(
-                    "7",
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 25,
-                           fontWeight: FontWeight.bold
-                       ),
+                  const Padding(padding: EdgeInsets.only(bottom: 35, top: 30)),
+                  InkWell(
+                    onTap: () {
+                      _Speak('It\'s Seven in the Morning');
+                    },
+                    child: Container(
+                      width: 200,
+                      height: 90,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                              offset: Offset(1, 0),
+                              spreadRadius: 0,
+                              blurRadius: 4,
+                              color: Colors.grey)
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Text(
+                            "7",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            ":",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "00",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "AM",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Icon(
+                            Icons.volume_up,
+                            color: Colors.blue,
+                            size: 30,
+                          )
+                        ],
+                      ),
+                    ),
                   ),
-                  Text(
-                    ":",
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 25,
-                           fontWeight: FontWeight.bold
-                       ),
-                  ),
-                  Text(
-                    "00",
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold
-                        ),
-                  ), Text(
-                    "AM",
-                    style: TextStyle(
-                        color: Colors.blue,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold
-                        ),
-                  ),
-                  Icon(
-                    Icons.volume_up,
-                    color: Colors.blue,
-                    size: 30,
-                  )
-                ],
-              ),
-            ),
-          ),
                   const SizedBox(
                     height: 50,
                   ),
@@ -177,10 +174,10 @@ class _DayState extends State<Day> {
                     child: MaterialButton(
                       onPressed: () {
                         Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (ctx) {
-                          return FinalTest();
-                        }),
-                      );
+                          MaterialPageRoute(builder: (ctx) {
+                            return FinalTest();
+                          }),
+                        );
                       },
                       child: const Text(
                         'Test',

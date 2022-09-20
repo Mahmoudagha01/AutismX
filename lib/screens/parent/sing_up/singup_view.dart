@@ -1,6 +1,5 @@
-import 'package:autismx/screens/BNB/screens/screens.dart';
-import 'package:autismx/screens/common/profile_cubit.dart';
-import 'package:autismx/screens/common/profile_states.dart';
+
+
 import 'package:autismx/screens/parent/sing_in/signin_view.dart';
 import 'package:autismx/screens/parent/sing_up/cubit/signup_controller.dart';
 import 'package:autismx/screens/surveys/configs/colors.dart';
@@ -10,6 +9,8 @@ import 'package:conditional_builder/conditional_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../common/profile_cubit.dart';
+import '../../common/profile_states.dart';
 import 'cubit/singup_states.dart';
 
 class SingUpParentLayout extends StatelessWidget {
@@ -47,8 +48,10 @@ class SingUpParentLayout extends StatelessWidget {
                     builder: (context) => const SignInParentLayout()));
           } else if (state is RegisterUploadImageState) {
             childImageController.text = state.imagePath;
+          }  else if (state is RegisterErrorState) {
+             print(state.error);
           } else {
-            print("no");
+           print("no");
           }
         },
         builder: (context, state) {
