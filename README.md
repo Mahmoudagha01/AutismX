@@ -1,4 +1,6 @@
 # AutismX
+AutismX is an app that helps non-verbal kids to communicate with their parents, teachers and friends. Using a lot of activites
+Using this app, you can take a test and answer few questions about behavioral indicators of the respondent.  Autism AI will be able to see and detect autism indicators in the respondent and tell whether there are any autistic traits by comparing the provided indicators with others.  The app also provides you with a detailed report that you can share with your health professional.
 
 # video
 You can see a Demo video [Here](https://drive.google.com/file/d/1aa-lgxyBvGEYo7b2i_MU5gTfg-0o536z/view?usp=share_link)
@@ -30,23 +32,3 @@ Drawer             |   Feedback Screen    | Centers Screen   | Profile Screen
 [Mahmoud Yasser](https://github.com/Mahmoudagha01)  Follow Me On [LinkedIn](https://www.linkedin.com/in/mahmoudysleim/) & [Twitter](https://twitter.com/MaHm0udAgha)<br>
 Mai Elhady<br>
 Mohamed Yousef ([Hossam Mohsen](https://github.com/HossamMohsen7))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
